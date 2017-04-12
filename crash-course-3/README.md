@@ -305,12 +305,5 @@ Aqui usamos a versão "promise wrapper" do mysql2. O uso de Promises é um tópi
 complicado no js. Caso esteja por fora, tenho um guia [aqui](https://gist.github.com/wkrueger/573c4be8d5081ca6aee9d445fac3c668).
 Roteamos o erro da Promise para o middleware de erro usando `.catch(next)`.
 
-> (comentário por fora)  
-> A sintaxe de promise e os middlewares do express não parecem bater muito bem entre si. 
-> Há alguma repetição de código porque ambos cumprem em parte funções similares. Isto é porque
-> o express em si é um framework de antes da popularização das promises.
->
-> Possivelmente veremos nos próximos anos a popularização de algum framework que se integre melhor
-> com promises e o async/await, talvez o koa2.
 
 E com isso fechamos os tópicos prometidos para a parte 3. Uff!
