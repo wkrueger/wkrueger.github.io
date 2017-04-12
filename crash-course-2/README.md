@@ -87,7 +87,8 @@ if (isNaN(times)) times = 1
 for (let it = 0; it < times; it++) console.log(coolFace())
 ```
 
-> `const`, `let` e `var` possuem funcionalidades similares.
+> `const`, `let` e `var` possuem funcionalidades similares. `const` e `let` são adições mais recentes na linguagem,
+>portanto engines mais antigas (IE) não suportarão.
 
 **Pacotes globais e ferramentas de console**
 
