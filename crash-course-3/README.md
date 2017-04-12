@@ -100,7 +100,7 @@ A ordem de definição dos `RequestHandlers` importa.
 Caso algum `RequestHandler` na cadeia chamar a função `next(obj)`, e `obj` possuir um tipo de Erro, 
 a requisição será roteada para o próximo `ErrorRequestHandler` **(pulando todos os demais handlers que não são de erro)**.
 
-    type ErrorRequestHandler = (req, res, next, err) => any
+    type ErrorRequestHandler = (err, req, res, next) => any
 
 Quando você chama `app.<X>` com uma função de 4 parâmetros, esta é reconhecida como um tratador de erros.
 
