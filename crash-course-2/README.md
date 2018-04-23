@@ -302,7 +302,7 @@ app.listen(3000, function () {
 ```
 
 > Caso você tenha vindo to PHP, note que aqui não temos a presença do servidor Apache/nginx.  
-> O script node É o servidor. O `module` é o DI container. O express é uma parte de seu framework web (slim/codeigniter/laravel).
+> O script node É o servidor. O express é uma parte de seu framework web (slim/codeigniter/laravel).
 
 O _express_ recebe uma requisição HTTP crua. A partir das regras que você registrar
 (`app.get`,  `app.post`, `app.use`, etc) ele irá rotear ela para a função definida.
