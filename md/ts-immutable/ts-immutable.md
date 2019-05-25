@@ -32,7 +32,7 @@ insideArray("a"); //string[]
 
 ## Reduzindo o uso de padrões mutáveis
 
-Mutável é quando uma mesma variável assume diferentes valores dentro de uma execução (definição porca). Enquanto no caso "imutável", compomos um objeto final a partir de funções e de outras variáveis.
+Mutável é quando uma mesma variável assume diferentes valores dentro de uma execução - isso incluindo um estado inicial nulo. Enquanto no caso "imutável", compomos um objeto final a partir de funções e de outras variáveis.
 
 O código mutável é mais difícil de ler e mais fácil de errar, além disso ele necessita de mais anotações pra ser efetivamente tipado.
 
