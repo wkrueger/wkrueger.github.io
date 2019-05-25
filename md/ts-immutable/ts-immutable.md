@@ -68,7 +68,7 @@ var input: Input[] = [a, b, c];
 const output = input.map(item => ({ 1: input.x, 2: input.y + input.z }));
 ```
 
-Observe que no segundo exemplo não precisamos anotar o tipo de `output`, pois ele já  inferido a partir da transformação do tipo de `input`.
+Observe que no segundo exemplo não precisamos anotar o tipo de `output`, pois ele já inferido a partir da transformação do tipo de `input`.
 
 ### Outras transformações imutáveis comuns
 
@@ -80,6 +80,8 @@ Observe que no segundo exemplo não precisamos anotar o tipo de `output`, pois e
 - assign: `{...a, ...b}` (unir objetos ou adicionar propriedades)
 - await: `Promise<T> => T`
 - Promise.all: `Promise<T>[] => Promise<T[]>`
+
+**Reduce?** Dificilmente você ganhará muito escrevendo `reduce` (depende do caso claro), tanto no aspecto de performance e até mesmo na legibilidade, porque ele é uma operação muito genérica, praticamente no nível onde é melhor escrever imperativamente. Também é tão chato de tipar quanto um _for_ imperativo. O reduce não abstrai nenhuma transformação de dados definida, ele é quase apenas um "for" disfarçado.
 
 ### Uso de `const`
 
