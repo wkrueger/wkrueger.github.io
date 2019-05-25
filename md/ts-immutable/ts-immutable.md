@@ -68,7 +68,7 @@ var input: Input[] = [a, b, c];
 const output = input.map(item => ({ 1: input.x, 2: input.y + input.z }));
 ```
 
-Observe que no segundo exemplo não precisamos anotar o tipo de `output`.
+Observe que no segundo exemplo não precisamos anotar o tipo de `output`, pois ele já  inferido a partir da transformação do tipo de `input`.
 
 ### Outras transformações imutáveis comuns
 
