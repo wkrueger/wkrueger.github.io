@@ -40,6 +40,8 @@ Em um nível mais baixo sempre necessitaremos de algoritmos mutáveis, porém mu
 
 O contrário de mutável é o imutável e funcional. Uma tranformação feita de forma imutável cria uma cópia do objeto original, sem alterá-lo. A característica marcante de código funcional (sem side-effects) é que você pode facilmente aplicar um modelo de "caixa-preta" em uma transformação. Só de ler a assinatura da função eu sei que entra X e sai Y, não preciso ficar revisando todas as linhas da implementação pra ver se no meio do caminho ela não faz um this.a = Z.
 
+**Side-effect:** Quando uma função altera alguma variável ou recebe alguma infomração de fora de sua "caixa preta", geralmente isto pode ser chamado de um "side-effect". Por exemplo, se uma função lê dados de um banco de dados, além do argumento da função, há uma segunda fonte de informação "extra" vindo do banco de dados.
+
 Quando for necessário o uso de mutações, que estas estejam concentradas em um único local ou isoladas em funções puras, ao menos minimiza o perigo.
 
 ## Identificando transformações de dados comuns
