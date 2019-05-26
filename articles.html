@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Às vezes escrevo</title>
+
+    <style>
+      aside {
+        width: 200px;
+        background-color: black;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <h1>Às vezes escrevo</h1>
+
+      <ul id="article-list"></ul>
+    </aside>
+
+    <script>
+      async function run() {
+        const foldersResp = await _fetchGH(`
+          {
+            repository(owner: "wkrueger", name: "wkrueger.github.io") {
+              object(expression: "master:md") {
+                ... on Tree {
+                  entries {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        `);
+        const folders = foldersResp.repository.object.entries.map(x => x.name);
+        const getLineFragment = (folder, idx) => `
+        line_${idx}: object(expression: "master:md/${folder}") {
+          ... on Tree {
+            entries {
+              name
+            }
+          }
+        }`;
+        const foldersQuery = `
+        {
+            repository(owner: "wkrueger", name: "wkrueger.github.io") {
+              ${folders.map(getLineFragment).join("\n")}
+            }
+          }        
+        `;
+        const folderDetailResp = await _fetchGH(foldersQuery);
+        var aa = 0;
+      }
+      // ---
+      const ENDPOINT = "https://willian.wkrueger.space";
+      async function _fetchGH(query) {
+        const resp = await fetch(ENDPOINT, {
+          method: "POST",
+          body: JSON.stringify({ query })
+        });
+        const json = await resp.json();
+        return json.data;
+      }
+      // --
+      run();
+    </script>
+  </body>
+</html>
