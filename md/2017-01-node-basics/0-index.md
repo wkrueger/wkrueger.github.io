@@ -20,6 +20,3 @@ Tabela 1: Lista
 
 
 ![prezado confrade](https://gist.github.com/wkrueger/27b157e476a650c7706611be3d85160f/raw/995480b3b16659e6b4a2b2de36121b547d763a2d/monocle.jpg)
-
-> Licença NÃO ESCROTIZE NÃO SEJA FDP.  
-> Não cole no seu site, adicione um link. Obrigado!
