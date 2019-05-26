@@ -1,4 +1,4 @@
-# Typescript: Usando código imutável para uma melhor cobertura de tipos
+# Typescript: Aumentando a cobertura de tipos com menos anotações
 
 Devido à propria natureza de um sistema de tipos, você pode escrever o código de formas que auxiliem o TS a inferir mais tipos com menos anotações.
 
@@ -114,3 +114,33 @@ const response = getX(); // vai montar o tipo corretamente
 ```
 
 Pra construir objetos "de uma vez", geralmente você terá que declarar algumas variáveis a mais. Porém, você pode reduzir a verbosidade ao declará-las com o mesmo nome da propriedade que deseja setar. Notar que _object spread_ `{...x}` e _array spread_ `[...x]` são também tranformações de dados comuns que já trazem o tipo correto ao resultado.
+
+## Usando _class properties_
+
+Em alguns casos, você pode mover variáveis inicializadas dentro de um construtor para uma inicialização
+de propriedade, que poupa uma anotação de tipo.
+
+Antes
+
+```ts
+class ShapeContainer {
+
+  shapes: Shape[]
+
+  constructor(data: Something) {
+    this.shapes = data.getShapes()
+  }
+
+}
+```
+
+Depois
+
+```ts
+class ShapeContainer {
+
+  constructor(private data: Something) {}
+
+  shapes = this.data.getShapes()
+}
+```
