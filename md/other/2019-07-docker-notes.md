@@ -26,6 +26,20 @@ CMD ["python", "app.py"]
 - Comandos acima controem a imagem no `docker build`
 - `CMD` é executado no `docker run` sobre a imagem construída no _build_
 
+### Argumentos
+
+```
+ -e  env: variável de ambiente
+ -d  detach
+ -it interativo
+ --name
+ -p expor portas
+ -rm apagar apos finalizar
+ --network X : conectar à rede X
+```
+
+
+
 ### Upload da imagem
 
 ```
