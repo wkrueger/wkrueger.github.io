@@ -127,3 +127,17 @@ export DOCKER_MACHINE_NAME="myvm1"
 - **Derrubar a stack** `docker stack rm`
 - **Resetar ambiente** `eval $(docker-machine env -u)`
 - **Iniciar máquina parada** `docker-machine start|stop <machine-name>`
+
+---
+
+# Networks
+
+Tipos
+
+- `bridge` - docker --> host
+- `host` - remover isolamento entre container e host
+- `overlay` - comunicação de swarm
+- `macvlan` - aparecer como dispositivo físico
+- `none`
+
+Na criação de um serviço, por padrão este entra na rede de tipo _overlay_  de no me _ingress_ , exceto se especificado o contrário.
