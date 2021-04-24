@@ -16,8 +16,8 @@ E finalmente, temos as consequências de um ecossistema que "move rápido e queb
 
 **Onde o Angular é melhor neste aspecto**
 
-  - O Angular (2+) trás uma gestão de estado poderosa e simples de usar desde o dia 1; Você não precisa de uma lib diferente de gestão de estado para o Angular todo ano, você não precisa engolir todas as limitações do Redux, porque a injeção de dependências **resolve o problema, desde o dia 1**;
+  - O Angular (2+) trás uma gestão de estado poderosa e simples de usar desde o dia 1; 
   - O Angular trás consigo um sistema de build mais completo do que o CRA, com uma forma clara de fazer code splitting. Existem pacotes de build melhores que o CRA? Sim. Mas o projeto que você pegar pra fazer manutenção vai estar usando o CRA;
-  - O sistema de roteamento do Angular funciona bem. É estável. Integra com code splitting. Por outro lado, no projeto React que você pegar pra manter, você tem a chance de pegar 5 versões diferentes de react-router, e de ter que fazer um grande refactor quando descobrirem que precisa fazer code splitting;
+  - O sistema de roteamento do Angular funciona bem. É estável. Integra com code splitting. Ele dá o caminho certo. Por outro lado, no projeto React que você pegar pra manter, você tem a chance de pegar 5 versões diferentes de react-router, e não vão ter descoberto o que é code splitting.
   - Apesar da framework estar em constante atualização, atualizações do Angular são, sem sombra de dúvidas, menos disruptivas do que atualização de umas das 50 libs de React em seu projeto. Ou do próprio React;
-  - Nem tudo é perfeito no Angular. Ninguém é lá muito fã dos formulários reativos. E eles continuarão lá. Não que as pessoas tenham decidido, em 2021, como fazer formulários corretamente no React.
+  - Nem tudo é perfeito no Angular. Ninguém é lá muito fã dos formulários reativos. E eles continuarão lá. Não que as pessoas tenham decidido, em 2021, como fazer formulários no React.
