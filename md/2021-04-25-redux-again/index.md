@@ -1,6 +1,10 @@
 # React e Redux em 2021
 
+Alguns anos se passaram, o Typescript se popularizou e o Redux tornou-se de uso mais palatável com a introdução do `redux-toolkit`. O intuito aqui é passar uma revisão (/opinião) de porque o Redux é necessário e como usá-lo, além de passar pontos geralmente ausentes em outros guias.
 
+**Sobre o alvo**
+
+Embora eu passe conceitos introdutórios, o texto provavelmente será muito resumido para alguém novo no Redux -- porém não pretendo me estender muito. Se você é novo no assunto e não entendeu algo, complemente a leitura a gosto com a consulta na documentação do _redux_, _react-redux_ e _redux-toolkit_.
 
 # Como os dados trafegam entre componentes?
 
@@ -18,8 +22,6 @@ Abaixo exemplos em código representando a imagem acima:
 
 React:
 ```tsx
-// react -- Diagrama da esquerda
-
 function ComponentWithState() {
   const [productInfo, setProductInfo] = useState('Product')
   return <Intermediary 
@@ -106,6 +108,8 @@ Se o componente não é reutilizado, é interessante acessar os dados via contex
 
 ![di samples](di_samples.png)
 
+É um erro comum usar-se mais Props do que deveria. Vamos enfatizar melhor, **se o componente não é reutilizável, seu estado deveria estar trafegando via dado contextual**.
+
 # Onde mora o estado de uma aplicação
 
 O estado é atrelado a componentes. Posiciona-se o estado em um componente pai ou filho dependendo da visibilidade desejada.
@@ -165,7 +169,7 @@ class StateContainer {
 const instance = new StateContainer()
 ```
 
-  - O Redux também é um container de estado como a classe acima; No exemplo abaixo temos um container redux com propridades similares;
+  - O Redux também é um container de estado como a classe acima; No exemplo abaixo temos um container redux com propriedades similares;
 
 
 ```tsx
@@ -177,7 +181,9 @@ const slice = createSlice({
   },
   reducers: {
     // função
-    addAddress(state, payload: Address) { },
+    addAddress(state, payload: Address) {
+      state.addresses.push(payload) // immer
+    },
   },
 });
 
@@ -360,7 +366,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 interface PersonPageState {}
 
 /**
- * Criamos aqui um "sub-bloco" de estado para a página "person".
+ * Criamos aqui um bloco de estado para a página "person".
  * Esta definição é encapsulada, não definimos ainda ONDE este estado vai morar. 
  */
 const personPageSlice = createSlice({
@@ -494,7 +500,7 @@ const aThunk = async (dispatch, getState) => {
 
 Porém, como existem mil formas de tratar erros, o simples uso de um _thunk_ acaba sendo uma opção muito "solta", muito baixo nível. Desta forma, é recomendado o uso do `createAsyncThunk`, o qual:
 
-  - Isola a regra de negócio do tratamento de estados de um `Promise`;
+  - Isola a regra de negócio das regras de tratamento de `Promise`;
   - Deixa explícito que temos que tratar as alterações de estado da `Promise` (`'idle' | 'pending' | 'succeeded' | 'failed'`);
 
 Replicarei aqui parte da [documentação do `createAsyncThunk`](https://redux-toolkit.js.org/api/createAsyncThunk). O uso básico dele é assim:
@@ -534,4 +540,4 @@ const usersSlice = createSlice({
 })
 ```
 
-
+No _asyncThunk_ apenas tratamos de regra de negócio. No _extraReducers_ pegamos o dado de resposta (ou o erro) e determinamos onde que ele vai ficar no estado.
