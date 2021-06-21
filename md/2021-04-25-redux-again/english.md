@@ -1,4 +1,4 @@
-Uma revisão de porquê e como usar o Redux moderno.
+A quick review on why you should use Redux in your React applications and how.
 
 Alguns anos se passaram, o Typescript se popularizou e o Redux tornou-se de uso mais palatável com a introdução do `redux-toolkit`. O intuito aqui é passar uma revisão (/opinião) de porque o Redux é necessário e como usá-lo, além de passar pontos geralmente ausentes em outros guias.
 
@@ -546,14 +546,3 @@ const usersSlice = createSlice({
 ```
 
 No _asyncThunk_ apenas tratamos de regra de negócio. No _extraReducers_ pegamos o dado de resposta (ou o erro) e determinamos onde que ele vai ficar no estado.
-
-# Alternativas
-
-Existem bibliotecas alternativas ao Redux para resolver o mesmo problema que ele resolve. Podemos pesquisar por "state management" no google. Qual era o problema que o Redux resolvia mesmo?
-
-  - Armazenamento e propagação eficiente de estado contextual;
-  - Isolamento de componente e estado;
-
-Faço aqui menção honrosa ao [zustand](https://github.com/pmndrs/zustand), que é uma biblioteca que trabalha com conceitos similares ao do Redux, mas com uma API simplificada.
-
-A API do zustand é a mínima possível, sendo muito rápida a leitura da documentação. O zustand não possui utilitários como o `combineReducers`, por outro lado incentiva o uso de múltiplas stores.
