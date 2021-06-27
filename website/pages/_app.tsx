@@ -14,6 +14,15 @@ const theme = extendTheme({
         background: "#fcf3d9",
         backgroundImage: "Brick-2400.jpg",
       },
+      "a.iconlink span": {
+        textDecoration: "underline",
+        textDecorationStyle: "dotted",
+        textDecorationColor: "#d8929c",
+      },
+      "a.iconlink span:hover": {
+        textDecorationStyle: "solid",
+        // textDecorationColor: "black",
+      },
     },
   },
 })
