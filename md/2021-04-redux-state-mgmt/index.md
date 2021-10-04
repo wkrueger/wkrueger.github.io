@@ -151,9 +151,21 @@ No exemplo acima
   - Não interessa ao pai de um componente de _Autocomplete_ saber do conteúdo que o usuário está digitando na caixa de texto (`inputText`, `currentOptions`). Interessa a ele apenas o id da opção selecionada;
   - Desta forma, o ID selecionado não é armazenado no estado do Autocomplete, mas entra via props; Já o valor da caixa de texto é armazenado como estado no autocomplete, tornando-se assim privado ao componente pai;
 
-# Redux
+# Biblitecas para gestão de estado
 
-É prática recomendada o uso do **Redux** para armazenar e trafegar dados contextuais (ao invés do `Context`). No Redux moderno, utilizamos a biblioteca `@reduxjs/tookit`, quer trás alguns padrões e facilidades.
+O React não é muito "ergonômico" ao realizarmos a tarefa de propagar informações via estado contextual. Isto dá origem ao assustador termo "gestão de estado" e à proliferação de bibliotecas existentes para tentar "tapar o buraco" deixado pelo React.
+
+Quando você se faz a pergunta "qual lib de gestão de estado usarei no meu projeto", surgem opções como:
+
+  - Nenhuma. Usar Prop drilling, contextos, memo...
+  - Redux
+  - Outras: Zustand, Jotai, MobX, use-context-selector, ...
+
+Seguimos este artigo abordando o **Redux** em mais detalhe.
+
+# Redux para dados contextuais
+
+O **Redux** tem a função de armazenar e trafegar dados contextuais (ao invés do `Context`). No Redux moderno, utilizamos a biblioteca `@reduxjs/tookit`, quer trás alguns padrões e facilidades.
 
 **O que é, como funciona?**
 
@@ -303,7 +315,7 @@ Infelizmente não dá pra usar seletores memoizados pra retornar `Promises`, poi
 
 O Redux quer que você armazene o estado em uma única _store_  global. Você até pode criar múltiplas _stores_ e amarrá-las a componentes mas isto não é recomendado e deve ser usado apenas em casos raros.
 
-![State Design](https://github.com/wkrueger/wkrueger.github.io/raw/master/md/2021-04-25-redux-again/state_design.svg)
+![State Design](state_design.svg)
 
 Embora você tenha liberade para desenhar o seu estado como quiser, o Redux sugere que você o divida via _slices_. Na imagem acima temos um exemplo de uma estrutura de projeto e de seu estado global correspondente.
 

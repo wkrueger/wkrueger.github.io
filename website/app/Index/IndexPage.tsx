@@ -31,15 +31,16 @@ const tipsList = css`
   }
 `
 
-const mainBox: CSSProperties = {
-  backgroundImage: "hayden-mills-2_3JKm2BPNs-unsplash.jpg",
-}
-
-export function Home() {
+export function IndexPage() {
   return (
-    <Box height="100vh" style={mainBox}>
+    <Box
+      height="100vh"
+      css={{
+        backgroundImage: "url('Brick-2400.jpg')",
+      }}
+    >
       <Head>
-        <title>Willian Krueger - Pedreiro digital</title>
+        <title>Willian Krueger - Pedreiro de Software</title>
       </Head>
       <Container
         maxW="container.lg"
@@ -61,7 +62,7 @@ export function Home() {
             Willian Krueger 🧱
           </Heading>
           <Heading size="md" fontWeight="light" textTransform="uppercase">
-            Pedreiro Digital
+            Pedreiro de Software
           </Heading>
           <Heading size="md" fontWeight="light">
             Sua obra em boas mãos.

@@ -1,4 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
+import { MDXRemote } from "next-mdx-remote"
+import {} from "next-mdx-remote/serialize"
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { slug } = ctx.params || {}

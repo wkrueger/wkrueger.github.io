@@ -1,4 +1,4 @@
-# Hooks can do them all (but you gotta twist it a bit)
+# Hooks can do them all (but you gotta twist them a bit)
 
 In this article I'll cover a couple of use cases achievable by hooks, but sometimes not as straightforward.
 

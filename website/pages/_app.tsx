@@ -12,7 +12,7 @@ const theme = extendTheme({
     global: {
       body: {
         background: "#fcf3d9",
-        backgroundImage: "Brick-2400.jpg",
+        // backgroundImage: "Brick-2400.jpg",
       },
       "a.iconlink span": {
         textDecoration: "underline",

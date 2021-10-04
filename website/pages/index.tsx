@@ -1,3 +1,3 @@
-import { Home } from "../app/Index/IndexPage"
+import { IndexPage } from "../app/Index/IndexPage"
 
-export default Home
+export default IndexPage
