@@ -1,12 +1,3 @@
-Uma revisão de porquê e como usar o Redux moderno.
-
-Alguns anos se passaram, o Typescript se popularizou e o Redux tornou-se de uso mais palatável com a introdução do `redux-toolkit`. O intuito aqui é passar uma revisão (/opinião) de porque o Redux é necessário e como usá-lo, além de passar pontos geralmente ausentes em outros guias.
-
-**Sobre o alvo**
-
-Embora eu passe conceitos introdutórios, não vou entrar muito neles, pois não pretendo me estender muito. A leitura pode ser complementada com a consulta na documentação do _redux_, _react-redux_ e _redux-toolkit_.
-
-
 # Como os dados trafegam entre componentes?
 
 A divisão da interface de usuário em componentes implica a necessidade de tráfego de informação entre estes. Existem 2 principais formas de tráfego de dados.
