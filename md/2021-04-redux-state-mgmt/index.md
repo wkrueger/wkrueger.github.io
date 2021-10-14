@@ -305,7 +305,7 @@ Infelizmente não dá pra usar seletores memoizados pra retornar `Promises`, poi
 
 ## Estado global
 
-O Redux quer que você armazene o estado em uma única _store_  global. Você até pode criar múltiplas _stores_ e amarrá-las a componentes mas isto não é recomendado e deve ser usado apenas em casos raros.
+O Redux quer que você armazene o estado em uma única _store_  global. Você até pode criar múltiplas _stores_ e amarrá-las a componentes mas isto não é recomendado pelos autores da lib.
 
 ![State Design](state_design.svg)
 
