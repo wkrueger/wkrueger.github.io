@@ -38,7 +38,7 @@ function ChildDesiresData({ productInfo, productInfoChange}) {
 }
 ```
 
-## Injeção de dependências / estado contextual
+## Injeção de dependências / Contexto
 
 ![DI Dataflow](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/11nhkvy8yjbua0fmtjwb.png)
 
@@ -145,7 +145,7 @@ No exemplo acima
 
 # Biblitecas para gestão de estado
 
-O React não é muito "ergonômico" ao realizarmos a tarefa de propagar informações via estado contextual. Isto dá origem ao assustador termo "gestão de estado" e à proliferação de bibliotecas existentes para tentar "tapar o buraco" deixado pelo React.
+O React não é muito "ergonômico" ao realizarmos a tarefa de propagar informações via contexto. Isto dá origem ao assustador termo "gestão de estado" e à proliferação de bibliotecas existentes para tentar "tapar o buraco" deixado pelo React.
 
 Quando você se faz a pergunta "qual lib de gestão de estado usarei no meu projeto", surgem opções como:
 
@@ -557,7 +557,7 @@ No _asyncThunk_ apenas tratamos de regra de negócio. No _extraReducers_ pegamos
 
 Existem bibliotecas alternativas ao Redux para resolver o mesmo problema que ele resolve. Podemos pesquisar por "state management" no google. Qual era o problema que o Redux resolvia mesmo?
 
-  - Armazenamento e propagação eficiente de estado contextual;
+  - Armazenamento e propagação eficiente do Context;
   - Isolamento de componente e estado;
 
 Faço aqui menção honrosa ao [zustand](https://github.com/pmndrs/zustand), que é uma biblioteca que trabalha com conceitos similares ao do Redux, mas com uma API simplificada.
