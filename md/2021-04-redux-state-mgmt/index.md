@@ -99,7 +99,7 @@ Se o componente não é reutilizado, é interessante acessar os dados via contex
   - O pai expõe o estado do CRUD (e funções para modificá-lo) através de um contexto;
 
 
-Nota: Um componente pode simultaneamente requisitar dados de diferentes "portais" DI.
+Um componente pode simultaneamente requisitar dados de diferentes "portais" de injeção de dependência. Quando você chama um `useTheme()` do Material-UI ou um `useRouter()` do react-router, você está acessando dados provenientes de injeção de dependência. 
 
 ![DI samples](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/62qehdz9gydu5222xplb.png)
 
