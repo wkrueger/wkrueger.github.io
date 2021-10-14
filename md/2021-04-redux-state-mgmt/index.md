@@ -146,7 +146,8 @@ function Autocomplete(
 No exemplo acima
 
   - Não interessa ao pai de um componente de _Autocomplete_ saber do conteúdo que o usuário está digitando na caixa de texto (`inputText`, `currentOptions`). Interessa a ele apenas o id da opção selecionada;
-  - Desta forma, o ID selecionado não é armazenado no estado do Autocomplete, mas entra via props; Já o valor da caixa de texto é armazenado como estado no autocomplete, tornando-se assim privado ao componente pai;
+  - Desta forma valor da caixa de texto é armazenado como estado no autocomplete, tornando-se assim oculto ao componente pai;
+  - O ID do item selecionado no autocomplete mora no componente pai;
 
 # Biblitecas para gestão de estado
 
