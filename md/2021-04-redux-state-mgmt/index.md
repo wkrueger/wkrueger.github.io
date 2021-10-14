@@ -100,8 +100,6 @@ Se o componente não é reutilizado, é interessante acessar os dados via contex
 
 ![DI samples](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/62qehdz9gydu5222xplb.png)
 
-É um erro comum usar-se mais Props do que deveria. Vamos enfatizar melhor, **se o componente não é reutilizável, ele deveria estar obtendo suas fontes via dado contextual**.
-
 # Onde mora o estado de uma aplicação
 
 O estado é atrelado a componentes. Posiciona-se o estado em um componente pai ou filho dependendo da visibilidade desejada.
