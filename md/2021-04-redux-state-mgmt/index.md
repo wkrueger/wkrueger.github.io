@@ -40,6 +40,8 @@ function ChildDesiresData({ productInfo, productInfoChange}) {
 
 ## Injeção de dependências / Contexto
 
+> PS: O "contexto" é uma implementação do pattern de "Injeção de Dependências". Quando usado o termo "Injeção de Dependências", estamos nos referindo a "Contexto".
+
 ![DI Dataflow](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/11nhkvy8yjbua0fmtjwb.png)
 
 A comunicação entre o dono do estado e o consumidor é realizada por intermédio de um "portal de dados" (termo livre). Com isso, o dado não precisa trafegar em componentes intermediários.
@@ -84,7 +86,7 @@ function ChildDesiresData() {
 ```
 
 
-# Quando usar props ou estado contextual?
+# Quando usar props ou contextos?
 
 O caso de uso comum para **props** são **componentes reutilizáveis**. Componentes que possuirão múltiplas instâncias no documento.
 
