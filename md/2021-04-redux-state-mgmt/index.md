@@ -496,6 +496,8 @@ Algumas práticas também são recomendadas para que o typescript possa entender
 
 ## Operações assíncronas
 
+> TODO: Incrementar issso
+
 As funções de atualização de estado (reducers) presentes no redux são todas _síncronas_. Existem inúmeras opiniões de como tratar operações assíncronas no redux (por exemplo: _thunks_ ou _sagas_). O `redux-toolkit` sugere o uso do `createAsyncThunk`. Esta escolha não foi tomada levianamente, então vamos seguí-la!
 
 Uma _store_ redux, por padrão, apenas aceita mensagens na forma de um objeto `{ type: string, payload: any }`. O `redux-tookit` adiciona a opção de passarmos um thunk, que é uma espécie de função iteradora como a abaixo:
