@@ -108,9 +108,12 @@ O estado é atrelado a componentes. Posiciona-se o estado em um componente pai o
 
   - Uma peça de estado é geralmente visível (*) aos componentes filho, privada aos componentes pais.
 
-Embora próprio guia do React recomende que você "mova estado para cima", em determinados casos você quer que ele fique "embaixo". Posiciona-se o estado no componente filho quando não interessa ao componente pai saber de sua existência. É tipo como se fosse uma propriedade _private_.
+Na maioria dos casos recomenda-se que se "mova estado para cima". Mas em determinados exceções você quer que ele fique "embaixo".
 
-Exemplo:
+  - Posiciona se o estado no componente pai na maioria dos casos, para que a toda a árvore de componentes facilmente tenha acesso a esse estado;
+  - Posiciona-se o estado no componente filho quando não interessa ao componente pai saber de sua existência. É tipo como se fosse uma propriedade _private_.
+
+No exemplo abaixo, escrevemos um componente "Autocomplete". O valor selecionado no autocomplete é um estado que mora no componente Pai. A lista de itens exibidos no Autocomplete é definida como informação privada, e assim ela fica como estado do componente filho.
 
 ```tsx
 function Host() {
