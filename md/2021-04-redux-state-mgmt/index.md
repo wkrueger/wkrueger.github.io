@@ -96,7 +96,10 @@ Se o componente não é reutilizado, é interessante acessar os dados via contex
   - Digamos que temos um grande formulário de CRUD, que se colocado todo em um único componente, daria um arquivo com 3000 linhas;
   - De modo a separar as responsabilidades e organizar o desenvolvimento, esta grande formulário é dividido em muitos componentes menores, com poucas linhas, em múltiplos níveis de aninhamento;
   - Estes componentes filhos requisitam todos do mesmo componente "pai", que fica na raiz da estrutura. O pai guarda o estado do CRUD e controla suas modificações;
-  - Um componente pode simultaneamente requisitar dados de diferentes "portais" DI.
+  - O pai expõe o estado do CRUD (e funções para modificá-lo) através de um contexto;
+
+
+Nota: Um componente pode simultaneamente requisitar dados de diferentes "portais" DI.
 
 ![DI samples](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/62qehdz9gydu5222xplb.png)
 
