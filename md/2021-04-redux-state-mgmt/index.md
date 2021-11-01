@@ -38,7 +38,9 @@ function ChildDesiresData({ productInfo, productInfoChange}) {
 }
 ```
 
-## Injeção de dependências / estado contextual
+## Injeção de dependências / Contexto
+
+> PS: O "contexto" é uma implementação do pattern de "Injeção de Dependências". Quando usado o termo "Injeção de Dependências", estamos nos referindo a "Contexto".
 
 ![DI Dataflow](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/11nhkvy8yjbua0fmtjwb.png)
 
@@ -84,7 +86,7 @@ function ChildDesiresData() {
 ```
 
 
-# Quando usar props ou estado contextual?
+# Quando usar props ou contextos?
 
 O caso de uso comum para **props** são **componentes reutilizáveis**. Componentes que possuirão múltiplas instâncias no documento.
 
@@ -95,12 +97,13 @@ Se o componente não é reutilizado, é interessante acessar os dados via contex
 
   - Digamos que temos um grande formulário de CRUD, que se colocado todo em um único componente, daria um arquivo com 3000 linhas;
   - De modo a separar as responsabilidades e organizar o desenvolvimento, esta grande formulário é dividido em muitos componentes menores, com poucas linhas, em múltiplos níveis de aninhamento;
-  - Estes componentes filhos requisitam todos do mesmo componente "pai", que fica na raiz da estrutura. O pai guarda o estado do CRUD e controla suas modificações;
-  - Um componente pode simultaneamente requisitar dados de diferentes "portais" DI.
+  - O componente pai guarda o estado do CRUD e controla suas modificações;
+  - O pai expõe o estado do CRUD (e funções para modificá-lo) através de um contexto. Os filhos acessam e modificam os dados a partir do contexto;
+
+
+Um componente pode simultaneamente requisitar dados de diferentes "portais" de injeção de dependência. Quando você chama um `useTheme()` do Material-UI ou um `useRouter()` do react-router, você está acessando dados provenientes de injeção de dependência. 
 
 ![DI samples](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/62qehdz9gydu5222xplb.png)
-
-É um erro comum usar-se mais Props do que deveria. Vamos enfatizar melhor, **se o componente não é reutilizável, ele deveria estar obtendo suas fontes via dado contextual**.
 
 # Onde mora o estado de uma aplicação
 
@@ -108,9 +111,12 @@ O estado é atrelado a componentes. Posiciona-se o estado em um componente pai o
 
   - Uma peça de estado é geralmente visível (*) aos componentes filho, privada aos componentes pais.
 
-Embora próprio guia do React recomende que você "mova estado para cima", em determinados casos você quer que ele fique "embaixo". Posiciona-se o estado no componente filho quando não interessa ao componente pai saber de sua existência. É tipo como se fosse uma propriedade _private_.
+Na maioria dos casos recomenda-se que se "mova estado para cima". Mas em determinados exceções você quer que ele fique "embaixo".
 
-Exemplo:
+  - Posiciona se o estado no componente pai na maioria dos casos, para que a toda a árvore de componentes facilmente tenha acesso a esse estado;
+  - Posiciona-se o estado no componente filho quando não interessa ao componente pai saber de sua existência. É tipo como se fosse uma propriedade _private_.
+
+No exemplo abaixo, escrevemos um componente "Autocomplete". O valor selecionado no autocomplete é um estado que mora no componente Pai. A lista de itens exibidos no Autocomplete é definida como informação privada, e assim ela fica como estado do componente filho.
 
 ```tsx
 function Host() {
@@ -140,11 +146,12 @@ function Autocomplete(
 No exemplo acima
 
   - Não interessa ao pai de um componente de _Autocomplete_ saber do conteúdo que o usuário está digitando na caixa de texto (`inputText`, `currentOptions`). Interessa a ele apenas o id da opção selecionada;
-  - Desta forma, o ID selecionado não é armazenado no estado do Autocomplete, mas entra via props; Já o valor da caixa de texto é armazenado como estado no autocomplete, tornando-se assim privado ao componente pai;
+  - Desta forma valor da caixa de texto é armazenado como estado no autocomplete, tornando-se assim oculto ao componente pai;
+  - O ID do item selecionado no autocomplete mora no componente pai;
 
 # Biblitecas para gestão de estado
 
-O React não é muito "ergonômico" ao realizarmos a tarefa de propagar informações via estado contextual. Isto dá origem ao assustador termo "gestão de estado" e à proliferação de bibliotecas existentes para tentar "tapar o buraco" deixado pelo React.
+O React não é muito "ergonômico" ao realizarmos a tarefa de propagar informações via contexto. Isto dá origem ao assustador termo "gestão de estado" e à proliferação de bibliotecas existentes para tentar "tapar o buraco" deixado pelo React.
 
 Quando você se faz a pergunta "qual lib de gestão de estado usarei no meu projeto", surgem opções como:
 
@@ -304,7 +311,7 @@ Infelizmente não dá pra usar seletores memoizados pra retornar `Promises`, poi
 
 ## Estado global
 
-O Redux quer que você armazene o estado em uma única _store_  global. Você até pode criar múltiplas _stores_ e amarrá-las a componentes mas isto não é recomendado e deve ser usado apenas em casos raros.
+O Redux quer que você armazene o estado em uma única _store_  global. Você até pode criar múltiplas _stores_ e amarrá-las a componentes mas isto não é recomendado pelos autores da lib.
 
 ![State Design](state_design.svg)
 
@@ -495,6 +502,8 @@ Algumas práticas também são recomendadas para que o typescript possa entender
 
 ## Operações assíncronas
 
+> TODO: Incrementar issso
+
 As funções de atualização de estado (reducers) presentes no redux são todas _síncronas_. Existem inúmeras opiniões de como tratar operações assíncronas no redux (por exemplo: _thunks_ ou _sagas_). O `redux-toolkit` sugere o uso do `createAsyncThunk`. Esta escolha não foi tomada levianamente, então vamos seguí-la!
 
 Uma _store_ redux, por padrão, apenas aceita mensagens na forma de um objeto `{ type: string, payload: any }`. O `redux-tookit` adiciona a opção de passarmos um thunk, que é uma espécie de função iteradora como a abaixo:
@@ -554,7 +563,7 @@ No _asyncThunk_ apenas tratamos de regra de negócio. No _extraReducers_ pegamos
 
 Existem bibliotecas alternativas ao Redux para resolver o mesmo problema que ele resolve. Podemos pesquisar por "state management" no google. Qual era o problema que o Redux resolvia mesmo?
 
-  - Armazenamento e propagação eficiente de estado contextual;
+  - Armazenamento e propagação eficiente do Context;
   - Isolamento de componente e estado;
 
 Faço aqui menção honrosa ao [zustand](https://github.com/pmndrs/zustand), que é uma biblioteca que trabalha com conceitos similares ao do Redux, mas com uma API simplificada.
