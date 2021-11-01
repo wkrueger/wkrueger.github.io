@@ -70,7 +70,7 @@ export function IndexPage() {
 
           <List css={tipsList}>
             <ListItem>
-              <Link href="/posts/test">
+              <Link href="/posts">
                 <a className="iconlink">
                   📓&nbsp;<span>Artigos</span>
                 </a>

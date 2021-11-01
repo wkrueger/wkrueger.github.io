@@ -1,3 +1,5 @@
+import PostsPage from "../../app/Posts/PostsPage"
+
 export default function Main() {
-  return <div>posts index</div>
+  return <PostsPage />
 }
