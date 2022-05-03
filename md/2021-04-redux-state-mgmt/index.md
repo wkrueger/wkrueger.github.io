@@ -319,21 +319,21 @@ Embora você tenha liberade para desenhar o seu estado como quiser, o Redux suge
 
 Embora as páginas (Person, Company...) só possam existir 1 por vez, na estrutura do Redux sugerida cada uma delas possui um _slot_ no objeto. Devemos prestar atenção para que o Redux limpe o estado das páginas não abertas, caso contrário teremos bugs;
 
-Correto:
+Desejável:
 ```json
 {
-  "personPage": { },
+  "personPage": { ... },
   "companyPage": null,
   "invoicePage": null,
   "productPage": null,
 }
 ```
-Errado:
+Pode trazer problemas:
 ```json
 {
-  "personPage": { },
-  "companyPage": { },
-  "invoicePage": { },
+  "personPage": { ... },
+  "companyPage": { ... },
+  "invoicePage": { ... },
   "productPage": null,
 }
 ```
