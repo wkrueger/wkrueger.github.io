@@ -33,7 +33,7 @@ export async function getArticlesIndex(getTitles = true) {
     dirs.map(async item => {
       const rgx = new RegExp(filenamePattern)
       const resp = rgx.exec(item)!
-      const [_, year, month, title] = resp
+      const [_, year, month] = resp
       const file = filesByFolder[item][0]
       let data = ''
       if (getTitles) {

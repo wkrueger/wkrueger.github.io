@@ -38,6 +38,15 @@ export const theme = extendTheme({
         _dark: 'var(--chakra-colors-whiteAlpha-800)',
         _light: 'var(--chakra-colors-blackAlpha-800)',
       },
+      // preBg: {
+      //   _dark: 'rgba(255, 255, 255, 0.05)',
+      //   _light: 'rgba(0,0,0, 0.05)',
+      // },
+      preBg: '#262b37', // 5% white over dark mode bg
+      quoteBg: {
+        _dark: 'rgba(255, 255, 255, 0.05)',
+        _light: 'rgba(0,0,0, 0.05)',
+      },
     },
   },
   // styles: {

@@ -36,7 +36,7 @@ export function IndexPage() {
     <Box
       height="100vh"
       css={{
-        backgroundImage: "url('Brick-2400.jpg')",
+        backgroundImage: "url('/Brick-2400.jpg')",
       }}
     >
       <Head>

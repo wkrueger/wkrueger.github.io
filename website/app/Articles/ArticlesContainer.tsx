@@ -48,17 +48,17 @@ export function ArticlesContainer({ Content }: { Content: FunctionComponent }) {
         <title>Artigos : Willian Krueger</title>
       </Head>
       <Center>
-        <Container sx={articlesStyles}>
+        <Container sx={articlesStyles} maxW="3xl">
           <nav>
             <ul>
-              <li>
-                <Link href={links.landing}>
-                  <a>Início</a>
-                </Link>
-              </li>
               <li className="active">
                 <Link href={links.articles}>
                   <a>Artigos</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={links.landing}>
+                  <a>Início</a>
                 </Link>
               </li>
               <Spacer />
@@ -71,8 +71,8 @@ export function ArticlesContainer({ Content }: { Content: FunctionComponent }) {
           </nav>
         </Container>
       </Center>
-      <Center sx={{ mt: 8 }}>
-        <Container>
+      <Center as="main" sx={{ mt: 8 }}>
+        <Container maxW="3xl" position="relative">
           <Content />
         </Container>
       </Center>

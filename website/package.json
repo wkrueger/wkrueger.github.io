@@ -15,19 +15,25 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/libre-caslon-text": "^4.4.5",
+    "@mapbox/rehype-prism": "^0.8.0",
     "framer-motion": "^6",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
     "next": "12",
-    "next-mdx-remote": "^3.0.2",
+    "next-mdx-remote": "^4.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remark-gfm": "^3.0.1",
+    "sass": "^1.53.0",
     "tiny-glob": "^0.2.9"
   },
   "devDependencies": {
+    "@types/mkdirp": "^1.0.2",
     "@types/node": "^18.0.3",
     "@types/react": "17.0.11",
     "eslint": "7.28.0",
     "eslint-config-next": "11.0.0",
-    "typescript": "4.3.4"
+    "typescript": "^4.7.4"
   },
   "prettier": {
     "printWidth": 100,

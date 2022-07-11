@@ -1,11 +1,10 @@
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import '@fontsource/libre-caslon-text/400.css'
 import '@fontsource/libre-caslon-text/700.css'
-import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from './_theme'
+import { theme } from '../app/theme'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
