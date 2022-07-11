@@ -1,18 +1,18 @@
-import { Box, Container, Flex, Heading, List, ListItem } from "@chakra-ui/react"
-import React, { CSSProperties } from "react"
-import Link from "next/link"
-import { css } from "@emotion/react"
-import Head from "next/head"
+import { Box, Container, Flex, Heading, List, ListItem } from '@chakra-ui/react'
+import React, { CSSProperties } from 'react'
+import Link from 'next/link'
+import { css } from '@emotion/react'
+import Head from 'next/head'
 
 const headingBlock = {
   h2: {
-    margin: "6px",
+    margin: '6px',
   },
 }
 
 const tipsList = css`
   display: flex;
-  margin-top: 1rem;
+  margin-top: 2rem;
   > * {
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@ export function IndexPage() {
     <Box
       height="100vh"
       css={{
-        backgroundImage: "url('Brick-2400.jpg')",
+        backgroundImage: "url('/Brick-2400.jpg')",
       }}
     >
       <Head>
@@ -48,6 +48,12 @@ export function IndexPage() {
         alignItems="center"
         justifyContent="center"
         height="100%"
+        sx={{
+          color: 'black',
+          'a:hover': {
+            color: 'var(--chakra-colors-orange-800)',
+          },
+        }}
       >
         <Flex
           flexDir="column"
@@ -70,7 +76,7 @@ export function IndexPage() {
 
           <List css={tipsList}>
             <ListItem>
-              <Link href="/posts">
+              <Link href="/articles">
                 <a className="iconlink">
                   📓&nbsp;<span>Artigos</span>
                 </a>
