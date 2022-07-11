@@ -10,21 +10,29 @@
     "next": "next"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.4",
+    "@chakra-ui/icons": "^2.0.3",
+    "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/libre-caslon-text": "^4.4.5",
-    "framer-motion": "^4",
-    "next": "11.0.0",
+    "framer-motion": "^6",
+    "next": "12",
     "next-mdx-remote": "^3.0.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tiny-glob": "^0.2.9"
   },
   "devDependencies": {
+    "@types/node": "^18.0.3",
     "@types/react": "17.0.11",
     "eslint": "7.28.0",
     "eslint-config-next": "11.0.0",
     "typescript": "4.3.4"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "arrowParens": "avoid"
   }
 }
