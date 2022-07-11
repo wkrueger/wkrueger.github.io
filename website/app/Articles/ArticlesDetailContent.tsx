@@ -38,8 +38,6 @@ function ImageComponent(
       }
     }
   }
-  console.log('img props', props)
-  console.log('img src', '/images/' + ctx.slug + '/' + filename)
   // eslint-disable-next-line
   return <img {...props} src={'/images/' + ctx.slug + '/' + filename} />
 }
@@ -47,29 +45,35 @@ function ImageComponent(
 const childComponentContext = createContext({ srcPath: '', slug: '' })
 
 const mdFormat: CSSObject = {
+  paddingBottom: '6rem',
   h1: {
     fontSize: '3xl',
     fontWeight: 'bold',
     marginTop: 8,
-    marginBottom: 4,
+    marginBottom: 2,
     display: 'inline-block',
     borderBottom: 'solid 3px var(--chakra-colors-orange-500)',
     width: '100%',
     paddingBottom: 3,
     borderRadius: 4,
-    '&:first-child': {
+    '&:first-of-type': {
       marginTop: 0,
     },
   },
+  'h1 + h2': {
+    mt: 4,
+  },
   h2: {
+    color: 'headingAccent',
     fontWeight: 'bold',
     fontSize: '2xl',
-    mt: 12,
-    mb: 6,
+    mt: 10,
+    mb: 4,
   },
   h3: {
+    color: 'headingAccent',
     fontSize: 'xl',
-    mt: 8,
+    mt: 6,
   },
   p: {
     my: 4,
@@ -84,7 +88,7 @@ const mdFormat: CSSObject = {
     minWidth: 'calc(100% + var(--chakra-space-12))',
     width: 'fit-content',
   },
-  ul: {
+  'ul, ol': {
     ml: '2rem',
   },
   li: {
@@ -108,6 +112,14 @@ const mdFormat: CSSObject = {
     '& > :last-of-type': {
       mb: 0,
     },
+  },
+  a: {
+    color: 'anchorAccent',
+    textDecoration: 'underline',
+    textDecorationStyle: 'dotted',
+  },
+  img: {
+    my: 10,
   },
 }
 

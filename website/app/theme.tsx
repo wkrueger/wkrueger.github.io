@@ -47,6 +47,14 @@ export const theme = extendTheme({
         _dark: 'rgba(255, 255, 255, 0.05)',
         _light: 'rgba(0,0,0, 0.05)',
       },
+      headingAccent: {
+        _dark: 'orange.100',
+        _light: 'orange.900',
+      },
+      anchorAccent: {
+        _dark: 'orange.100',
+        _light: 'orange.900',
+      },
     },
   },
   // styles: {

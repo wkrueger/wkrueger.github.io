@@ -1,10 +1,8 @@
 import { MoonIcon } from '@chakra-ui/icons'
-import { Box, Button, Center, Container, CSSObject, Spacer, useColorMode } from '@chakra-ui/react'
+import { Button, Center, Container, CSSObject, Spacer, useColorMode } from '@chakra-ui/react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { ComponentType, FunctionComponent } from 'react'
-import { Article } from '../_serverServices/getArticlesIndex'
-import { ArticlesListContent } from './ArticlesListContent'
+import { FunctionComponent } from 'react'
 
 const links = {
   landing: '/',

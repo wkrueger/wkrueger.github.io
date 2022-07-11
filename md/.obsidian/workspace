@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "887c2164a03798db",
+    "type": "split",
+    "children": [
+      {
+        "id": "95756af7717921f9",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "2022-07-notas-do-blog-pessoal/Notas do blog pessoal.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "54d09141486ba04e",
+    "type": "split",
+    "children": [
+      {
+        "id": "45ba553044b24459",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94e8f78ff338d0b0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "b5a1cadab7a73372",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ea0bdd5033dc02f2",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d952f223622426a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "953552a8682cd4a8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2022-07-notas-do-blog-pessoal/Notas do blog pessoal.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "95756af7717921f9",
+  "lastOpenFiles": [
+    "2022-07-notas-do-blog-pessoal/Notas do blog pessoal.md",
+    "Atributos de um software que me fazem ir com a sua cara.md",
+    "(insere wikilink pra futuramente escrever sobre quais qualidades me fazem ir com a cara de um projeto).md"
+  ]
+}
