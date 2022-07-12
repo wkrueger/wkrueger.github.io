@@ -82,16 +82,12 @@ return <Box sx={{ color: 'myColor' }}></Box>
   - A lib de markdown se responsabiliza em converter markdown em HTML, mas não em formatá-lo;
   - Sigo o guia na documentação do MDX pra adicionar _syntax highlighting_.
 	  - Escolho a opção "prism" (fujo da pre-histórica _highlight.js_);
-	  - O site do _prism_ é MUITO FEIO. Tem um seletor de temas na lateral que só reflete em blocos de exemplo que tem que rolar a página pra poder ver. Um terror.
 
-![Site do prism](image1.png)
-
-
-- Cato no google o CSS com o tema _Shades of Purple_ para o _prism_. Eu já lembrava desse tema no VS Code e convenientemente ele tem acentos em laranja;
-- Edito tamanho de fonte e cor de fundo;
-- Os vários elementos diferentes que podem ser gerados têm que ser estilizados manualmente. Mas até que não é tanta coisa:
-  - p, h1, h2, h3, blockquote, ul, ol, li, pre
-  - Isso tudo usando o emotion, que é uma delicinha;
+  - Cato no google o CSS com o tema _Shades of Purple_ para o _prism_. Eu já lembrava desse tema no VS Code e convenientemente ele tem acentos em laranja;
+  - Edito tamanho de fonte e cor de fundo;
+  - Os vários elementos diferentes que podem ser gerados têm que ser estilizados manualmente. Mas até que não é tanta coisa:
+    - p, h1, h2, h3, blockquote, ul, ol, li, pre
+    - Isso tudo usando o emotion, que é uma delicinha;
 
 
 ## Lidando com imagens
