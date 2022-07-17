@@ -140,7 +140,7 @@ Reitera-se que:
  - Você pode usar a **tática do agregamento** para associar uma recompensa rápida a um investimento que não dá recompensa instantânea. Por ex: tomar um suco depois de correr; Esta recompensa, no entanto, tem que aderir com a sua identidade desejada (não adianta se recompensar com cerveja depois de correr);
  - Use alguma forma de **acompanhar seu progresso** - como anotações ou um aplicativo. Com isto têm-se pitadas de recompensas no meio do processo, e o foco é alterado para o processo, não para o resultado final;
  - **Nunca falhe duas vezes** um hábito programado;
- - É muito melhor ter uma sessão ruim do que não haver sessão nenhuma. Os dias onde é mais difícil cumprir um hábito (ex: ir à academia em dia de chuva) mais importantes do que os demais. Você tem a oportunidade de superar uma barreira mais difícil e de fortalecer sua identidade;
+ - É muito melhor ter uma sessão ruim do que não haver sessão nenhuma. Em certos dias, é mais difícil cumprir um hábito. (ex: Ir à academia em dia de chuva). Estes dias são mais importantes do que os demais, pois neles você tem a oportunidade de superar uma barreira mais difícil e de fortalecer sua identidade;
  - Não se perca nas métricas: Apesar de o uso de métricas de acompanhamento ser eficiente, não esquecer do cenário e do objetivo maior;
 
 ### Interesses naturais
