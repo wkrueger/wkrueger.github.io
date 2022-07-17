@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 }
 
 export default function Main(props: any) {
-  const title = 'Artigos - Willian Krueger'
+  const title = 'Artigos'
   const router = useRouter()
   return (
     <>
