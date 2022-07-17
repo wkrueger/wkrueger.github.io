@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { ArticlesDetail } from '../../app/Articles/ArticlesDetail'
-import { SITE_TITLE } from '../../app/globals'
+import { CANONICAL_BASE_URL, SITE_TITLE } from '../../app/globals'
 import { ArticlesDetailData, getArticlesDetail } from '../../app/_serverServices/getArticlesDetail'
 import { getArticlesIndex } from '../../app/_serverServices/getArticlesIndex'
 
@@ -23,12 +24,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export default function Main(props: { articlesDetail: ArticlesDetailData }) {
+  const title = props.articlesDetail.title + ' - ' + SITE_TITLE
+  const router = useRouter()
   return (
     <div>
       <Head>
-        <title>
-          {props.articlesDetail.title} : {SITE_TITLE}
-        </title>
+        <title>{title}</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="org:url" content={CANONICAL_BASE_URL + router.asPath} />
       </Head>
       <ArticlesDetail {...props} />
     </div>
