@@ -1,10 +1,10 @@
 import { createContext } from 'react'
-import { ArticlesDetail } from '../_serverServices/getArticlesDetail'
+import { ArticlesDetailData } from '../_serverServices/getArticlesDetail'
 import { ArticlesContainer } from './ArticlesContainer'
 import ArticlesDetailContent from './ArticlesDetailContent'
 
 interface ArticlesDetailProps {
-  articlesDetail: ArticlesDetail
+  articlesDetail: ArticlesDetailData
 }
 
 export const articlesDetailContext = createContext(null as any as ArticlesDetailProps)

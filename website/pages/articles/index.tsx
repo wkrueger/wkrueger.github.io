@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import { ArticlesList } from '../../app/Articles/ArticlesList'
 import { getArticlesIndex } from '../../app/_serverServices/getArticlesIndex'
 
@@ -12,5 +13,12 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default function Main(props: any) {
-  return <ArticlesList articles={props.articlesIndex} />
+  return (
+    <>
+      <Head>
+        <title>Artigos : Willian Krueger</title>
+      </Head>
+      <ArticlesList articles={props.articlesIndex} />
+    </>
+  )
 }

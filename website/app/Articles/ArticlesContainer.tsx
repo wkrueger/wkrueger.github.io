@@ -42,9 +42,6 @@ export function ArticlesContainer({ Content }: { Content: FunctionComponent }) {
 
   return (
     <>
-      <Head>
-        <title>Artigos : Willian Krueger</title>
-      </Head>
       <Center>
         <Container sx={articlesStyles} maxW="3xl">
           <nav>

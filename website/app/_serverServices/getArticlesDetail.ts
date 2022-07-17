@@ -9,6 +9,8 @@ export async function getArticlesDetail({ slug }: { slug: string }) {
   const attemptFiles = await glob(`../md/${slug}/*.md`)
   if (!attemptFiles.length) throw Error('não achou nada.')
   const contentRaw = await fs.readFile(attemptFiles[0], 'utf8')
+  const titlePattern = /^\# (.*)$/gm
+  const foundTitle = (titlePattern.exec(contentRaw.slice(0, 200)) || [''])[1]
   const mdxSource = await serialize(contentRaw, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
@@ -25,7 +27,8 @@ export async function getArticlesDetail({ slug }: { slug: string }) {
     folder,
     slug,
     mdxSource,
+    title: foundTitle,
   }
 }
 
-export type ArticlesDetail = Awaited<ReturnType<typeof getArticlesDetail>>
+export type ArticlesDetailData = Awaited<ReturnType<typeof getArticlesDetail>>

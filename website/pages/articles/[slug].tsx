@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { ArticlesDetail } from '../../app/Articles/ArticlesDetail'
-import { getArticlesDetail } from '../../app/_serverServices/getArticlesDetail'
+import { SITE_TITLE } from '../../app/globals'
+import { ArticlesDetailData, getArticlesDetail } from '../../app/_serverServices/getArticlesDetail'
 import { getArticlesIndex } from '../../app/_serverServices/getArticlesIndex'
 
 export const getStaticProps: GetStaticProps = async ctx => {
@@ -20,6 +22,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export default function Main(props: any) {
-  return <ArticlesDetail {...props} />
+export default function Main(props: { articlesDetail: ArticlesDetailData }) {
+  return (
+    <div>
+      <Head>
+        <title>
+          {props.articlesDetail.title} : {SITE_TITLE}
+        </title>
+      </Head>
+      <ArticlesDetail {...props} />
+    </div>
+  )
 }
