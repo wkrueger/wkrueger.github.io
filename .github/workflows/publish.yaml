@@ -4,16 +4,16 @@ jobs:
   build-and-copy:
     runs-on: node
     steps:
-      - cd website
-      - yarn install --frozen-lockfile
-      - yarn build
-      - yarn next export
-      - cd ..
-      - rm -rf docs
-      - mv website/out docs
-      - cd docs
-      - touch .nojekyll
-      - cd ..
-      - git add .
-      - git commit -m "Website build"
-      - git push
+      - run: cd website
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn next export
+      - run: cd ..
+      - run: rm -rf docs
+      - run: mv website/out docs
+      - run: cd docs
+      - run: touch .nojekyll
+      - run: cd ..
+      - run: git add .
+      - run: git commit -m "Website build"
+      - run: git push
