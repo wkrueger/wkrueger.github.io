@@ -1,0 +1,15 @@
+name: publish
+on: [push]
+jobs:
+  build-and-copy:
+    runs-on: node
+    steps:
+      - cd website
+      - yarn install --frozen-lockfile
+      - yarn build
+      - yarn next export
+      - cd ..
+      - rm -rf docs
+      - mv website/out docs
+      - cd docs
+      - touch .nojekyll
