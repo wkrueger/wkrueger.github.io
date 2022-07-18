@@ -19,5 +19,7 @@ jobs:
       - run: touch .nojekyll
         working-directory: ./docs
       - run: git add .
+      - run: git config --global user.email "bot@example.com"
+      - run: git config --global user.name "Build website action"
       - run: git commit -m "Website build"
       - run: git push
