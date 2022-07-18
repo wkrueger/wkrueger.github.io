@@ -2,8 +2,12 @@ name: publish
 on: [push]
 jobs:
   build-and-copy:
-    runs-on: node
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - run: cd website
       - run: yarn install --frozen-lockfile
       - run: yarn build
