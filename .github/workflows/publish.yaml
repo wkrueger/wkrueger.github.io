@@ -8,16 +8,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: cd website
       - run: yarn install --frozen-lockfile
+        working-directory: ./website
       - run: yarn build
+        working-directory: ./website
       - run: yarn next export
-      - run: cd ..
+        working-directory: ./website
       - run: rm -rf docs
       - run: mv website/out docs
-      - run: cd docs
       - run: touch .nojekyll
-      - run: cd ..
+        working-directory: ./docs
       - run: git add .
       - run: git commit -m "Website build"
       - run: git push
