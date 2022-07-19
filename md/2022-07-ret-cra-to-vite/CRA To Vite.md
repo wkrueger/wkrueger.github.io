@@ -35,7 +35,9 @@ This might change a bit depending on what kind of stuff you have in your project
 
 ## React plugin
 
-Ont of the first things to add is the React plugin in the Vite Config. (`@vitejs/plugin/react`)
+One of the first things to add is the React plugin in the Vite Config. (`@vitejs/plugin/react`).
+
+Below is shown the final version of the vite config:
 
 ```ts
 /// <reference types="vitest" />
@@ -69,7 +71,22 @@ export default defineConfig({
 In CRA, folders at the source root can be acessed as absolute paths. 
 - I.e. `/src/ListComponent/Somefile.ts` can be imported as
 - `import Somefile from 'ListComponent/Somefile'`
-This special handling doesn't exist on Vite. I have manually stitched this mapping on vite config's `path.alias` setting.
+
+This special handling doesn't exist on Vite. I have then manually stitched this mapping on vite config's `resolve.alias` setting.
+
+```ts
+const rootPaths = fs.readdirSync('src').reduce((out, item) => {
+  const parsed = parse(item);
+  return { ...out, [parsed.name]: resolve('src', item) };
+}, {});
+
+export default defineConfig({
+  // ..
+  resolve: {
+    alias: rootPaths,
+  },
+});
+```
 
 ## SVG Imports
 
@@ -87,17 +104,17 @@ A frictionless fix was to add the `vite-plugin-svgr` shown above (found in a Sta
 
 ## Environment variables
 
-Vite doesnt read environment variables from `process.env`, but rather from `import.meta.env`; Also, the `NODE_ENV` variable is found on the `import.meta.env.mode`, which is set according to the build tool used (vite dev server, vite build or vitest);
+Vite doesnt read environment variables from `process.env`, but rather from `import.meta.env`; Also, the `NODE_ENV` variable is found on the `import.meta.env.mode`, which is set according to the build environment used (Vite dev server, Vite build or vitest);
 
-Some bad taste environmental variables like `BROWSER=none` or `PORT` won't be needed anymore (Vite's server accepts a `--port` argument like 99% of other software in the world).
+Some badly tasting environment variables like `BROWSER=none` or `PORT` won't be needed anymore (Vite's server accepts a `--port` argument like 99% of other software in the world).
 
 The default environment variable _safe prefix_ is `VITE_APP` instead of `REACT_APP`. This can be changed on the `envPrefix` setting (as shown above), as to avoid some refactoring.
 
 ## Type defs
 
-If you previously depended on strictly typed `process.env`, you may need to move those types to the corresponding global interfaces `ImportMetaEnv` and `ImportMeta`, as shown on the [environment variable docs.](https://vitejs.dev/guide/env-and-mode.html#env-files);
+If you previously worked on a strictly typed `process.env`, you may need to move those types to the corresponding global interfaces `ImportMetaEnv` and `ImportMeta`, as shown on the [environment variable docs.](https://vitejs.dev/guide/env-and-mode.html#env-files);
 
-On react.app-env.d.ts, replace:
+We also need to replace the build tool types. On react.app-env.d.ts, replace:
 ```diff
 - /// <reference types="react-scripts" />
 + /// <reference types="vite/client" />
@@ -105,7 +122,14 @@ On react.app-env.d.ts, replace:
 
 ## Other static asset imports
 
-Importing non-public static assets (like images) generates an unique URL; If you need to dynamically import static assets, this may be done with the following trick, as shown on the [static asset docs](https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url).
+Importing non-public static assets (like images) generates an unique URL;
+
+```ts
+import Smiley from './assets/smiley.png'
+// `Smiley` is just an URL string
+```
+
+If you really can't import those assets though a static `import` or through an async `import()`, the following trick may also work, as shown on the [static asset docs](https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url).
 ```tsx
 function getImageUrl(name) {
 	return new URL(`./dir/${name}.png`, import.meta.url).href
@@ -145,6 +169,7 @@ We still kept Jest on the project, we're just not using its **test runner** anym
 _Vitest_ reads from the same config file (`vite.config.ts`). You need to add its type directive for TS not to complain:
 
 ```ts
+// on vite.config.ts:
 /// <reference types="vitest" />
 ```
 
@@ -161,7 +186,7 @@ As shown before, we needed a couple extra settings on the "test" key.
 - When you set an environment, the CLI will suggest you to separately install it.
 
 
-## Eslint
+## ESLint
 
 Many ESLint plugins that were previously bundled with CRA had to be manually installed and added.
  - @typescript-eslint/eslint-plugin
@@ -196,9 +221,9 @@ We ended up with something like this on the  `eslint.config`:
 
 ## Build and development
 
-The Vite Dev server does not automatically include TS checking. It suggests you to run `tsc` on the build task (`tsc && vite build`). The tsconfig is alreaddy suggested with a `noEmit`.
+The Vite Dev server does not automatically include TS checking. It suggests you to run `tsc` on the build task (`tsc && vite build`). The tsconfig is already suggested with a `noEmit`.
 
-While you may probably add `tsc` through a plugin, in the end I think it is better not to, since VSCode already runs its own TS Server, and running it on the development mode creates a duplicate TS Server.
+While you may probably add `tsc` to the build through a plugin, in the end I think it is better not to, since VSCode already runs its own TS Server. Running `tsc` on the development server creates a duplicate TS Server.
 
 In case you'd like to check errors project-wide:
   - you may still run `tsc -w`
@@ -212,9 +237,9 @@ Build time went to around 25 seconds down from 3 min (could be lower if I hadn't
 
 Peak memory usage went to 1,2GB, down from ~3GB.
 
-- The development server starts right away, since it actually didn't compile anything. Pages are compiled as you load them (similar to what happens on Next.js). The development mode may not feel THAT fast on a first page load, since every single file is served individually. If you look at the requests pane, you can see an enormous number of files being served;
+- The development server starts right away, since it actually didn't compile anything. Pages are compiled as you load them (similar to what happens on Next.js). The development mode may not feel THAT fast on a first page load, since every dependency is served individually. If you look at the requests pane, you can see an enormous number of files being served;
 - Nonetheless, it is orders faster than Webpacks 3-minute build-of-everything;
 - Only the files required by a specific page are compiled and served;
 - This also means that when performing HMR, only the changed files are re-served. HMR feels more responsive;
 - This may also mean that once the first load is done, the browser may leverage caching of individual files on its side;
-- On the production mode, the files are bundled more like it happens on other traditional tools. The differences are explained right on the [first page of the docs](https://vitejs.dev/guide/why.html).
+- On the production mode, the files are bundled more like it happens on other traditional tools. Development and production builds are considerably different from each other. The differences are explained right on the [first page of the docs](https://vitejs.dev/guide/why.html).
