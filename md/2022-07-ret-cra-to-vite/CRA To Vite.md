@@ -120,21 +120,6 @@ We also need to replace the build tool types. On react.app-env.d.ts, replace:
 + /// <reference types="vite/client" />
 ```
 
-## Other static asset imports
-
-Importing non-public static assets (like images) generates an unique URL;
-
-```ts
-import Smiley from './assets/smiley.png'
-// `Smiley` is just an URL string
-```
-
-If you really can't import those assets though a static `import` or through an async `import()`, the following trick may also work, as shown on the [static asset docs](https://vitejs.dev/guide/assets.html#new-url-url-import-meta-url).
-```tsx
-function getImageUrl(name) {
-	return new URL(`./dir/${name}.png`, import.meta.url).href
-}
-```
 
 ## The index.html
 
