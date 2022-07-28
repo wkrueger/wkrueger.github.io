@@ -1,6 +1,14 @@
 import groupBy from 'lodash/groupBy'
+import { ExternalPromise } from '../_helpers/ExternalPromise'
 
-export async function getArticlesIndex(getTitles = true) {
+global._articlesIndex = null
+
+export async function getArticlesIndex(): Promise<Article[]> {
+  const getTitles = true
+  if (process.env.NODE_ENV === 'production') {
+    if (global._articlesIndex) return global._articlesIndex.promise
+    global._articlesIndex = new ExternalPromise()
+  }
   const path = await import('path')
   const glob = (await import('tiny-glob')).default
   const fs = await import('fs')
@@ -29,7 +37,7 @@ export async function getArticlesIndex(getTitles = true) {
     return 0
   })
 
-  return Promise.all(
+  const result = await Promise.all(
     dirs.map(async item => {
       const rgx = new RegExp(filenamePattern)
       const resp = rgx.exec(item)!
@@ -59,6 +67,16 @@ export async function getArticlesIndex(getTitles = true) {
       }
     })
   )
+  if (process.env.NODE_ENV === 'production') {
+    global._articlesIndex.resolve(result)
+  }
+  return result
 }
 
-export type Article = Awaited<ReturnType<typeof getArticlesIndex>>[0]
+export interface Article {
+  year: string
+  month: string
+  datestr: string
+  path: string
+  title: string
+}

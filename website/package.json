@@ -17,6 +17,7 @@
     "@fontsource/libre-caslon-text": "^4.4.5",
     "@mapbox/rehype-prism": "^0.8.0",
     "framer-motion": "^6",
+    "fuse.js": "^6.6.2",
     "lodash": "^4.17.21",
     "mkdirp": "^1.0.4",
     "next": "12",

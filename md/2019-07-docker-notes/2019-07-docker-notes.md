@@ -1,5 +1,7 @@
 # Docker notes
 
+[[Tag: Notas permanentes]]
+
 ```
 docker container --help
 docker container ls

@@ -25,7 +25,7 @@ A algum tempo eu já vinha acumulando alguns artigos (blogs ou peças maiores) e
 
 A idéia é converter o markdown em HTML usando um gerador estático. Vamos de next.js pela familiaridade. Gera páginas estáticas e é flexível e bem suportado.
 
-No lado do CSS, vamos de Chakra. É algo com que ainda estou me familiarizando mas em geral é um software com que "fui com a cara" [[Atributos de um software que me fazem ir com a sua cara | (adiciona wikilink pra futuramente escrever o que me faz ir com a cara de um software)]].
+No lado do CSS, vamos de Chakra. É algo com que ainda estou me familiarizando mas em geral é um software com que "fui com a cara" ([[Atributos de um software que me fazem ir com a sua cara]]).
 
 ## Estrutura pré-existente
 
