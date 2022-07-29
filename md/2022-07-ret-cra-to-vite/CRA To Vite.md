@@ -173,6 +173,9 @@ As shown before, we needed a couple extra settings on the "test" key.
 
 ## ESLint
 
+> **Update - 08/2022**: The config set below is harder to set up and not ideal. Instead, install the
+> `react-app` eslint plugin, as described on [their docs](https://www.npmjs.com/package/eslint-config-react-app).
+
 Many ESLint plugins that were previously bundled with CRA had to be manually installed and added.
  - @typescript-eslint/eslint-plugin
  - @typescript-eslint/parser
