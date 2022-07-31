@@ -54,7 +54,7 @@ RESOLVE:
 getUserInfo()  --> { followedChannels: [{ ... }, { ... }] }
 ```
 
-O carregamento em cascata é um _tradeoff_ entre simplicidade e performance. É mais _simples_ escrever um componente que cuide de seus próprios dados e não possua dependência externa, pois este estará mais isolado. Para você evitar o carregamento em cascata, você tem que mover partes do carregamento de dados para cima, e para o servidor.
+O carregamento em cascata é um _tradeoff_ entre simplicidade e performance. É mais _simples_ escrever um componente que cuide de seus próprios dados e não possua dependência externa, pois este estará mais isolado. **Para você evitar o carregamento em cascata, você tem que mover partes do carregamento de dados para cima, e para o servidor.**
 
 **Relay:** O _Relay_ é uma das poucas bibliotecas que se propõe a abstrair o problema de "mover o carregamento de dados pra cima e para o servidor". O Theo tem uma opinião mista sobre o Relay. Diz ele que é bem complexa, o que dá margem pra pessoas a usando errado. E possui relativamente pouco uso na comunidade. Eu ainda não peguei para testar.
 
