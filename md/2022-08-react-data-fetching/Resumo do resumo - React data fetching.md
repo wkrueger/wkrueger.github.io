@@ -54,7 +54,26 @@ RESOLVE:
 getUserInfo()  --> { followedChannels: [{ ... }, { ... }] }
 ```
 
-O carregamento em cascata é um _tradeoff_ entre simplicidade e performance. É mais _simples_ escrever um componente que cuide de seus próprios dados e não possua dependência externa, pois este estará mais isolado. Para você evitar o carregamento em cascata, você tem que mover partes do carregamento de dados para cima, e para o servidor.
+O carregamento em cascata é um _tradeoff_ entre simplicidade e performance. É mais _simples_ escrever um componente que cuide de seus próprios dados e não possua dependência externa, pois este estará mais isolado. Para se evitar a  cascata, você tem que mover partes do carregamento de dados para cima, e para o servidor.
 
 **Relay:** O _Relay_ é uma das poucas bibliotecas que se propõe a abstrair o problema de "mover o carregamento de dados pra cima e para o servidor". O Theo tem uma opinião mista sobre o Relay. Diz ele que é bem complexa, o que dá margem pra pessoas a usando errado. E possui relativamente pouco uso na comunidade. Eu ainda não peguei para testar.
 
+
+## Carregamento via SSR (next.js)
+
+Falamos anteriormente em mover o carregamento de dados para cima e para o servidor. Em uma SPA, isto significaria ter uma API que inicialmente já trouxesse os dados necessários em apenas uma viagem. No caso do Next.js (com SSR), isto pode ser feito movendo o carregamento para a função `getStaticProps()`.
+
+Suponhamos que temos um código que realiza múltiplas requisições à API para montarmos um estado completo, por exemplo:
+
+```tsx
+const currentUser = await getCurrentUser()
+const onlineChannelsInfo = await Promise.all(currentUser.onlineFollowedChannels.map(id => getChannelInfo(id))
+```
+
+O código acima faria sentido tanto em uma seção de JS do browser quanto no `getStaticProps()`. Só que no caso do SSR estes dados carregariam _antes_, primeiro porque essas requisições não dependeriam do carregamento inicial da página para serem iniciadas, e segundo porque teriam uma latência menor para a API.
+
+--grafico--
+
+### Tempos de carregamento
+
+Como o HTML inicial da página depende do carregamento dos dados no lado do servidor, uma página usando SSR ficará mais tempo parada em branco do que uma página usando "SPA". Por outro lado, a primeira leva de dados já vira mais completa, teremos menos tempo de "spinners"*, e a página ficará completa em menos tempo.
