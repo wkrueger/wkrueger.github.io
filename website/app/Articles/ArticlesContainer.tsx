@@ -37,6 +37,7 @@ const articlesStyles: CSSObject = {
   },
 }
 
+/** Common container for Articles List and Articles Detail */
 export function ArticlesContainer({ Content }: { Content: FunctionComponent }) {
   const { toggleColorMode } = useColorMode()
 

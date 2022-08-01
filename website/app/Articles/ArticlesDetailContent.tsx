@@ -1,7 +1,9 @@
 import { createContext, DetailedHTMLProps, ImgHTMLAttributes, useContext } from 'react'
 import { articlesDetailContext } from './ArticlesDetail'
 import { MDXRemote } from 'next-mdx-remote'
-import { chakra, CSSObject } from '@chakra-ui/react'
+import { chakra, CSSObject, List, ListIcon, ListItem } from '@chakra-ui/react'
+import { ArrowForwardIcon } from '@chakra-ui/icons'
+import Link from 'next/link'
 
 function ImageComponent(
   props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
@@ -123,6 +125,20 @@ const mdFormat: CSSObject = {
   },
 }
 
+const footerFormat: CSSObject = {
+  ...mdFormat,
+  h2: {
+    ...(mdFormat.h2 as any),
+    mt: 0,
+    color: 'white',
+  },
+  borderWidth: '1px',
+  borderRadius: 'lg',
+  px: 6,
+  mx: -6,
+  py: 6,
+}
+
 export default function ArticlesDetailContent() {
   const { articlesDetail } = useContext(articlesDetailContext)
   return (
@@ -145,6 +161,21 @@ export default function ArticlesDetailContent() {
           }}
         />
       </chakra.main>
+      {Boolean(articlesDetail.backlinks.length) && (
+        <chakra.footer sx={footerFormat}>
+          <h2>Backlinks</h2>
+          <List>
+            {articlesDetail.backlinks.map(link => (
+              <ListItem key={link.source.path}>
+                <ListIcon as={ArrowForwardIcon} color="green.500" />
+                <Link href={'/articles/' + link.source.path}>
+                  <a>{link.source.title}</a>
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </chakra.footer>
+      )}
     </childComponentContext.Provider>
   )
 }

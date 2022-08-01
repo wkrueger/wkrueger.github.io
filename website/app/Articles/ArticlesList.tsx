@@ -9,6 +9,7 @@ interface ArticlesListProps {
   articles: Article[]
 }
 
+/** Page entry */
 export function ArticlesList(props: ArticlesListProps) {
   if (!props.articles) return null
   return (

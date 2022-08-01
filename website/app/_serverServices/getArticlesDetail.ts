@@ -6,8 +6,13 @@ import glob from 'tiny-glob'
 import { parse, sep } from 'path'
 import { getArticlesIndex } from './getArticlesIndex'
 import fuse from 'fuse.js'
+import { getAllLinks } from './getAllLinks'
+import { tryCache as tryCacheFn, resolve } from './workerClient'
 
-export async function getArticlesDetail({ slug }: { slug: string }) {
+export async function getArticlesDetail({ slug, tryCache }: { slug: string; tryCache?: boolean }) {
+  const tryResult = await tryCacheFn(['_articlesDetail', slug], tryCache)
+  if (tryResult) return tryResult as never
+  // console.log('get article', tryCache, `[${process.pid}]`, slug)
   const attemptFiles = await glob(`../md/${slug}/*.md`)
   if (!attemptFiles.length) throw Error('não achou nada.')
   let content = await fs.readFile(attemptFiles[0], 'utf8')
@@ -25,14 +30,28 @@ export async function getArticlesDetail({ slug }: { slug: string }) {
   const filenamePattern = /^(\d{4})-(\d{2})-(.*)/g
   const resp = filenamePattern.exec(slug)!
   const [_, year, month] = resp
-  return {
+  const out = {
     year,
     month,
     folder,
     slug,
     mdxSource,
+    wikiLinks,
     title: foundTitle,
   }
+  await resolve(['_articlesDetail', slug], out)
+  return out
+}
+
+export async function getArticlesDetailWithBacklinks({ slug }) {
+  const links = await getAllLinks().then(links => {
+    return (links[slug] || []).filter(link => !link.isImage)
+  })
+  const detail = await getArticlesDetail({ slug, tryCache: true })
+  // links may not refresh on dev mode, manually open the updated pages in order to
+  // update the links on dev mode.
+
+  return { ...detail, backlinks: links }
 }
 
 async function getWikilinks(text: string) {
@@ -42,6 +61,7 @@ async function getWikilinks(text: string) {
     display: string
     srclink: string
     actualLink: string
+    isImage: boolean
   }[] = []
   const rgx = /\[\[(.*?)\]\]/gm
 
@@ -50,13 +70,22 @@ async function getWikilinks(text: string) {
   while ((result = rgx.exec(text)) !== null) {
     const content = result[result.length - 1]
     let [link, display] = content.split('|').map(s => s.trim())
-    const actualLink = link.startsWith('http') ? link : await findSlug(link)
+    const isImage = text.charAt(result.index - 1) === '!'
+    let actualLink: string
+    if (link.startsWith('http')) {
+      actualLink = link
+    } else if (isImage) {
+      actualLink = encodeURIComponent(link)
+    } else {
+      actualLink = await findSlug(link)
+    }
     matches.push({
       start: result.index,
       end: rgx.lastIndex,
       display: display || link,
       srclink: link,
       actualLink,
+      isImage,
     })
   }
   return matches
@@ -95,4 +124,4 @@ function replaceWikilinks(linksInfo: Awaited<ReturnType<typeof getWikilinks>>, s
   return out
 }
 
-export type ArticlesDetailData = Awaited<ReturnType<typeof getArticlesDetail>>
+export type ArticlesDetailData = Awaited<ReturnType<typeof getArticlesDetailWithBacklinks>>

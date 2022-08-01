@@ -1,8 +1,11 @@
 export class ExternalPromise<T> {
   private _resolve: any
   private _reject: any
+  isResolved = false
 
   resolve = (arg: T) => {
+    if (this.isResolved) return
+    this.isResolved = true
     this._resolve(arg)
   }
 

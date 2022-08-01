@@ -24,5 +24,5 @@
 
 ## Tags
 
-  - Inspirado no que pode ser feito no Notion, uma tag pode ser definida como uma mera referência a uma página existente; Para definir uma tag, basta criar um página, a exemplo de [[Tag: Blog release notes]] e [[Tag: Notas permanentes]];
+  - Inspirado no que pode ser feito no Notion, uma tag pode ser definida como uma mera referência a uma página existente; Para definir uma tag, basta criar um página, a exemplo de [[Tag: Blog release notes]];
   - A listagem de itens marcados por uma tag é realizada a partir de backlinks;

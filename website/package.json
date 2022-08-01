@@ -16,6 +16,7 @@
     "@emotion/styled": "^11",
     "@fontsource/libre-caslon-text": "^4.4.5",
     "@mapbox/rehype-prism": "^0.8.0",
+    "better-sqlite3": "^7.6.2",
     "framer-motion": "^6",
     "fuse.js": "^6.6.2",
     "lodash": "^4.17.21",
@@ -29,6 +30,7 @@
     "tiny-glob": "^0.2.9"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.5.0",
     "@types/mkdirp": "^1.0.2",
     "@types/node": "^18.0.3",
     "@types/react": "17.0.11",

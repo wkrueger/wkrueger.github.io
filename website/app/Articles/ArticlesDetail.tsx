@@ -9,6 +9,7 @@ interface ArticlesDetailProps {
 
 export const articlesDetailContext = createContext(null as any as ArticlesDetailProps)
 
+/** Page entry */
 export function ArticlesDetail(props: ArticlesDetailProps) {
   return (
     <articlesDetailContext.Provider value={props}>
