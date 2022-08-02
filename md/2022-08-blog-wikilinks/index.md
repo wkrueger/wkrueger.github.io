@@ -50,6 +50,7 @@ Entramos aqui em um problema de IPC. O cache tem que ser lido e salvo a partir d
 
   - Uma idéia trabalhosa aqui seria lansar um processo de cache. Como esse processo se comunicaria? stdout? Socket?
   - Se o subprocesso for lançado a partir de um dos processos filhos, quando este filho terminar a build, o next chama um `process.exit()` nele, matando também o subprocesso;
+  - Como lançar um subprocesso de fora do worker de página do nextjs? Uma gambi seria fazê-lo no next.config.js;
 
 Acabei seguindo por uma idéia talvez menos eficiente, que foi o uso de um banco SQLite para comunicação;
 
