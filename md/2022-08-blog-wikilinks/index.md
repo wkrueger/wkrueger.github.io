@@ -53,8 +53,8 @@ Entramos aqui em um problema de IPC. O cache tem que ser lido e salvo a partir d
 
 Acabei seguindo por uma idéia talvez menos eficiente, que foi o uso de um banco SQLite para comunicação;
 
-  - Segundo documentação, o SQLite é preparado para e lida com sincronização de vários clientes lendo e escrevendo no mesmo arquivo;
-  - Um problema aqui é pra pra aguardar a conclusão de tarefas temos que fazer polling no banco;
+  - Segundo documentação, o SQLite lida com sincronização de vários clientes lendo e escrevendo no mesmo arquivo;
+  - Um problema aqui é que pra aguardar a conclusão de tarefas temos que fazer polling no banco;
 
 ```ts
 function tryCache(cacheKey, useCache) {
