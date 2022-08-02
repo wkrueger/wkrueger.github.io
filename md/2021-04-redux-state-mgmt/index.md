@@ -1,5 +1,7 @@
 # Como os dados trafegam entre componentes?
 
+[[Tag: React]]
+
 A divisão da interface de usuário em componentes implica a necessidade de tráfego de informação entre estes. Existem 2 principais formas de tráfego de dados.
 
 ## Props

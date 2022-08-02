@@ -1,5 +1,7 @@
 # Post-review: Migrating CRA to Vite
 
+[[Tag: React]]
+
 ## Previous state
 
 Create-react-app application takes around 3 minutes to build, requiring around 3GB of RAM.

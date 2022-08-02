@@ -1,6 +1,8 @@
 # Resumo do resumo: Data Fetching in React
 
-> yet another React post... [[Tag: React]]
+[[Tag: React]]
+
+> yet another React post...
 
 Resumo do vídeo [Data Fetching in React](https://www.youtube.com/watch?v=Ao8F3FypsbI), do [Theo Browne](https://twitter.com/t3dotgg). Thanks Theo.
 

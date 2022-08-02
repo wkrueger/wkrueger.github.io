@@ -1,5 +1,7 @@
 # Resumo do resumo: Atomic Habits
 
+[[Tag: Lifehack]]
+
 O resumo de origem: [https://www.chrisbehan.ca/posts/atomic-habits](https://www.chrisbehan.ca/posts/atomic-habits). Muito obrigado, Chris Behan (autor do resumo) e James Clear (autor do livro).
 
 # Idéias básicas

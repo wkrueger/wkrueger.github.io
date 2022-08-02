@@ -1,5 +1,7 @@
 # Typescript: Aumentando a cobertura de tipos com menos anotações
 
+[[Tag: Typescript]]
+
 Devido à propria natureza de um sistema de tipos, você pode escrever o código de formas que auxiliem o TS a inferir mais tipos com menos anotações.
 
 ## Beabá da inferência

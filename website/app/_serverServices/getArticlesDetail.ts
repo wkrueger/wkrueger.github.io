@@ -8,6 +8,7 @@ import { getArticlesIndex } from './getArticlesIndex'
 import fuse from 'fuse.js'
 import { getAllLinks } from './getAllLinks'
 import { tryCache as tryCacheFn, resolve } from './workerClient'
+import { sortBy } from 'lodash'
 
 export async function getArticlesDetail({ slug, tryCache }: { slug: string; tryCache?: boolean }) {
   const tryResult = await tryCacheFn(['_articlesDetail', slug], tryCache)
@@ -44,9 +45,10 @@ export async function getArticlesDetail({ slug, tryCache }: { slug: string; tryC
 }
 
 export async function getArticlesDetailWithBacklinks({ slug }) {
-  const links = await getAllLinks().then(links => {
+  let links = await getAllLinks().then(links => {
     return (links[slug] || []).filter(link => !link.isImage)
   })
+  links = sortBy(links, l => l.source.datestr).reverse()
   const detail = await getArticlesDetail({ slug, tryCache: true })
   // links may not refresh on dev mode, manually open the updated pages in order to
   // update the links on dev mode.

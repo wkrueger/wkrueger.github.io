@@ -1,5 +1,7 @@
 # Integrating APIs to a TypeScript frontend with OpenAPI/Swagger
 
+[[Tag: Typescript]]
+
 Http-served REST and HTTP + JSON has became popular with great human readability, we can fairly easily call remote functions with a `curl` line on console.
 
 While it is great to have an highly readable exchange format, I also strongly lean to the opinion that calling an API through HTTP should ideally feel as integrated as calling a function from an imported library.

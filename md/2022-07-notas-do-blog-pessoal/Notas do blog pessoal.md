@@ -1,5 +1,7 @@
 # Notas do blog pessoal
 
+[[Tag: Blog release notes]]
+
 ## Requisitos
 - Escrever textos em markdown
 - Preferencialmente usando arquivos, sobre um controle de versão

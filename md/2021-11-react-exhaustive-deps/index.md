@@ -1,5 +1,7 @@
 # Never ignore the exhaustive-deps rule
 
+[[Tag: React]]
+
 ![nazaré](Nazaré_Confusa.jpg)
 
 > (caption: Mrs. Tedesco writing a Todo Application in React with hooks)

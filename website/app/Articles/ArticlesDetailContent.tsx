@@ -169,7 +169,9 @@ export default function ArticlesDetailContent() {
               <ListItem key={link.source.path}>
                 <ListIcon as={ArrowForwardIcon} color="green.500" />
                 <Link href={'/articles/' + link.source.path}>
-                  <a>{link.source.title}</a>
+                  <a>
+                    ({link.source.year}/{link.source.month}) {link.source.title}
+                  </a>
                 </Link>
               </ListItem>
             ))}

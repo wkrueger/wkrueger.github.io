@@ -1,5 +1,7 @@
 # React daily ramblings: Encapsulated list items
 
+[[Tag: React]]
+
 So this is something that should be simple but actually hit me for a while yesterday.
 
 Let's say I want to create a To Do App. Or anything else with a list.

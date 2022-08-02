@@ -1,5 +1,7 @@
 # Dores do React, pt 1 of... - A terceirização
 
+[[Tag: React]]
+
 O React de certa forma me lembra o Express (do node.js) com relação ao escopo da biblioteca. O React foca em uma parte importante, porém incompleta, de uma proposta de criação de interface de usuário. As partes faltantes são completadas por bibliotecas de terceiros ou sugeridas.
 
 Um ponto positivo para essa abordagem é que a comunidade propôe novas e melhores formas de resolver os problemas de uma forma bem dinâmica.
