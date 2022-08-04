@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "2022-08-react-data-fetching/Resumo do resumo - React data fetching.md",
+            "file": "2022-08-z1-exploracao-coda/Objetivos coda.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2022-08-react-data-fetching/Resumo do resumo - React data fetching.md",
+                "file": "2022-08-z1-exploracao-coda/Objetivos coda.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +89,10 @@
   },
   "active": "95756af7717921f9",
   "lastOpenFiles": [
+    "2022-08-z1-exploracao-coda/Pasted image 20220804095340.png",
+    "2022-08-z1-exploracao-coda/Objetivos coda.md",
+    "2022-08-z1-a-ordem-das-coisas/A ordem das coisas.md",
+    "2022-08-react-data-fetching/Resumo do resumo - React data fetching.md",
     "2022-07-ret-cra-to-vite/CRA To Vite.md",
     "2022-07-resumo-atomic-habits/Resumo do resumo - Atomic Habits.md",
     "2022-07b-resumo-atomic-habits/Resumo do resumo - Atomic Habits.md",
