@@ -2,18 +2,15 @@
 
 [[Tag: Notas Permanentes]]
 
-Pode-se afirmar que no momento Promises são a forma mais "padrão" no momento de se tratar com
-assincronismo no JS. Para quem trabalha com javascript, conhecê-las é essencial.
-Uma dificuldade comum é que esta API tem uma curva de aprendizado um tanto acentuada de início, especialmente
-se comparado com as alternativas mais antigas: callbacks e o módulo `async`. No meu caso, levei ao menos uns 3 
-meses pra "cair a ficha".
+Pode-se afirmar que no momento Promises são a forma mais "padrão" no momento de se tratar com ssincronismo no JS. Para quem trabalha com javascript, conhecê-las é essencial.
+
+Uma dificuldade comum é que esta API tem uma curva de aprendizado um tanto acentuada de início, especialmente se comparado com as alternativas mais antigas: callbacks e o módulo `async`. No meu caso, levei ao menos uns 3  meses pra "cair a ficha".
 
 > -- na verdade promises ainda são um remendo para o problema do assincronismo do JS. Elas ainda possuem certa dificuldade
 > na adoção (se comparado a código síncrono) e ainda comem tempo de processamento de seu cérebro (se comparado a código síncrono).
 > Mas são o mínimo necessário para levar a escrita de código JS a um nível são, já que callbacks facilmente levam a "spaghetti code". --
 
-Tentarei aqui fazer uma introdução ao assunto, com foco em passar muitos exemplos. Algumas vezes posso sacrificar
-a precisão acadêmica propositalmente em nome de uma explicação mais simples. Em alguns casos trago opiniões pessoais.
+Tentarei aqui fazer uma introdução ao assunto, com foco em passar muitos exemplos. Algumas vezes posso sacrificar a precisão acadêmica propositalmente em nome de uma explicação mais simples. Em alguns casos trago opiniões pessoais.
 
 ## Pré-definições
 
@@ -187,8 +184,7 @@ class Promise {
 
 É um **método** do objeto Promise usado pra **encadear** eventos assíncronos subsequentes.
 
-Caso a etapa anterior tenha sucesso, `sequenceFn()` é executado, caso contrário
-roda a `failFn()`.
+Caso a etapa anterior tenha sucesso, `sequenceFn()` é executado, caso contrário roda a `failFn()`.
 
 Os callbacks `sequenceFn` e `failFn` recebem como argumento a resposta passada na etapa anterior da sequência de eventos.
 
@@ -224,12 +220,9 @@ Quando você dá um `throw` dentro do `sequenceFn` ou quando o retorno desse é 
 o fluxo é encaminhado para o próximo `.catch` da sequência.
 
 Observe que esse `throw` não "propagará" para o resto do programa (nem o interromperá), apenas para a sequência de Promise em questão.
-Em plataformas recentes (com Promise nativa do es6) aparece uma mensagem no console sobre o erro (uncaught rejection), mas em algumas mais
-antigas ou em bibliotecas um erro pode não deixar aviso nenhum se não tratado com uma etapa `.catch()` e um log.
+Em plataformas recentes (com Promise nativa do es6) aparece uma mensagem no console sobre o erro (uncaught rejection), mas em algumas mais antigas ou em bibliotecas um erro pode não deixar aviso nenhum se não tratado com uma etapa `.catch()` e um log.
 
-Quando há uma falha em uma sequência de Promises, o erro varre a sequência até encontrar
-o primeiro `.catch()`. Para que o erro não seja "engolido", não se esqueça de repassá-lo para o resto da cadeia
-usando `throw` novamente. Usar `return` dentro de um `.catch()` fará o status mudar pra "sucesso" e a sequência cair no
+Quando há uma falha em uma sequência de Promises, o erro varre a sequência até encontrar o primeiro `.catch()`. Para que o erro não seja "engolido", não se esqueça de repassá-lo para o resto da cadeia usando `throw` novamente. Usar `return` dentro de um `.catch()` fará o status mudar pra "sucesso" e a sequência cair no
 `.then()` seguinte.
 
 ```javascript
@@ -300,18 +293,15 @@ Geralmente você estará utilizando `Promise.all` e, conjunção com `Array#map`
 
 ### Basicão array#map e array#reduce
 
-Eu ainda não sou o guru da programação funcional, mas uma das partes importantes (e mais fáceis) dela é pensar
-em termos de __fluxos de dados__ e __transformações__.
+Eu ainda não sou o guru da programação funcional, mas uma das partes importantes (e mais fáceis) dela é pensar em termos de __fluxos de dados__ e __transformações__.
 
-Por exemplo, se no início tenho uma lista com 15 ids, e ao final terei 15 ~qualquer coisa~, então certamente esta
-transformação pode ser feita com o map (exceto se esses 15 ids tiverem interdependências/não linearidades).
+Por exemplo, se no início tenho uma lista com 15 ids, e ao final terei 15 ~qualquer coisa~, então certamente esta transformação pode ser feita com o map (exceto se esses 15 ids tiverem interdependências/não linearidades).
 
 ```
 number[15] => Array#map => Promise<Cliente>[15] => Promise.all => Promise<Cliente[15]> => Promise#then => Cliente[15]
 ```
 
-Por outro lado, se de 15 números, ao final quero obter apenas um objeto/estatística, então certamente terei de usar
-o reduce.
+Por outro lado, se de 15 números, ao final quero obter apenas um objeto/estatística, então certamente terei de usar o reduce.
 
 ```
 number[15] => Array#reduce => string
@@ -377,8 +367,7 @@ return estados.reduce( (sequencia, estado) => {
 ### Aninhamento
 
 O código em promise tem a característica de poder funcionar com aninhamento.
-Se fôssemos pensar de forma gráfica, a informação na parte mais profunda da "cascata" parece que
-vai "subindo" até a raiz, em uma espécie de árvore.
+Se fôssemos pensar de forma gráfica, a informação na parte mais profunda da "cascata" parece que vai "subindo" até a raiz, em uma espécie de árvore.
 
 ```javascript
 // -- todas as funções personalizadas aqui retornam promises
@@ -400,9 +389,7 @@ obterCliente().then( function(cliente) {
 
 ### Otimização
 
-Lembre-se que um dos principais motivos do uso de Promises é cortar as identações. Embora às vezes seja
-necessário criar mais níveis porque variáveis podem estar fora de escopo, em muitos casos o código pode ser otimizado
-de modo a cortar identações. Por exemplo, o caso anterior poderia ser simplificado para:
+Lembre-se que um dos principais motivos do uso de Promises é cortar as identações. Embora às vezes seja necessário criar mais níveis porque variáveis podem estar fora de escopo, em muitos casos o código pode ser otimizado de modo a cortar identações. Por exemplo, o caso anterior poderia ser simplificado para:
 
 ```javascript
 obterCliente().then( function(cliente) {
@@ -420,8 +407,7 @@ obterCliente().then( function(cliente) {
 })
 ```
 
-Você pode tornar as coisas mais lineares jogando as variáveis comuns entre os
-blocos para o escopo superior. Aqui jogamos " cliente" pra cima.
+Você pode tornar as coisas mais lineares jogando as variáveis comuns entre os blocos para o escopo superior. Aqui jogamos " cliente" pra cima.
 
 ```javascript
 var cliente
@@ -443,11 +429,9 @@ obterCliente().then( function(_cliente) {
 
 ### Mostrando erros com 1 catch só
 
-Da mesma forma que em código síncrono podemos usar um `try` para pegar um erro de um grande bloco de
-código, em um código de Promise um `.catch` no final de uma sequência faz o mesmo trabalho.
+Da mesma forma que em código síncrono podemos usar um `try` para pegar um erro de um grande bloco de código, em um código de Promise um `.catch` no final de uma sequência faz o mesmo trabalho.
 
-É importante, porém, que o formato dos erros seja **padronizado** no programa todo. Ou seja, que os objetos de erro
-não tenham diversos formatos.
+É importante, porém, que o formato dos erros seja **padronizado** no programa todo. Ou seja, que os objetos de erro não tenham diversos formatos.
 
 Outro erro bem comum é esquecer de usar **return** dentro de **.then()'s**. Um return não dado é um fio perdido, tome cuidado.
 
