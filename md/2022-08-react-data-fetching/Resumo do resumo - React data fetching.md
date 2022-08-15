@@ -10,17 +10,7 @@ Resumo do vídeo [Data Fetching in React](https://www.youtube.com/watch?v=Ao8F3F
 
 ## Prólogo: Coisas das quais não vamos falar
 
-- Se você deseja simplesmente buscar dados sem muita preocupação, e pricipalmente evitando dezenas de futuras armadilhas, use o [Tanstack Query](https://tanstack.com/query/v4/docs/overview);
-- [useSWR (da Vercel)](https://swr.vercel.app/) é uma segunda alternativa, porém menos completa e não muito menor em tamanho;
-
-> Nestas bibliotecas, para cada consulta você fornece um _identificador único_, que serve como base para múltiplos recursos como a deduplicação de múltiplas chamadas para a mesma API, cache, etc.
-> 
-> Estas libs abstraem o tratamento de estados de uma solicitação assíncrona (pendente, erro, pronto), possuem auxiliadores para paginação, atualizam dados automaticamente em mutações; e tratam os dados como vivos, fazendo polling para atualizações. Dentre outros.
-
-- `fetch` é considerado um recurso de baixo nível. Geralmente você não deve precisar usá-lo pois este já estará sendo abstraído pelo (ex.) React Query.
-> ... mesmo que surja um caso onde você diretamente chame o fetch, isto acontecerá em um wrapper criado por você, nunca diretamente de um `useEffect`;
-
-- Existem absolutamente _zero_ motivos pra usar Axios. É tipo usar jQuery em 2022.
+(movido para o apêndice)
 
 ## Anatomia do carregamento de uma SPA
 
@@ -150,3 +140,18 @@ O servidor mandaria o mais cedo possível uma página vazia para o cliente, cont
 	- Componente montado no servidor pode emitir múltiplas atualizações para o cliente;
 	- Permite que tenhamos uma página de carregamento exibida antes, mantendo o carregamento de dados no servidor.
 	- Busca unir as vantagens do SSR e do SPA.
+
+
+## Apêndice: Sobre consultas no lado do cliente
+
+- Se você deseja simplesmente buscar dados sem muita preocupação, e pricipalmente evitando dezenas de futuras armadilhas, use o [Tanstack Query](https://tanstack.com/query/v4/docs/overview);
+- [useSWR (da Vercel)](https://swr.vercel.app/) é uma segunda alternativa, porém menos completa e não muito menor em tamanho;
+
+> Nestas bibliotecas, para cada consulta você fornece um _identificador único_, que serve como base para múltiplos recursos como a deduplicação de múltiplas chamadas para a mesma API, cache, etc.
+> 
+> Estas libs abstraem o tratamento de estados de uma solicitação assíncrona (pendente, erro, pronto), possuem auxiliadores para paginação, atualizam dados automaticamente em mutações; e tratam os dados como vivos, fazendo polling para atualizações. Dentre outros.
+
+- `fetch` é considerado um recurso de baixo nível. Geralmente você não deve precisar usá-lo (diretamente) pois este já estará sendo abstraído pelo (ex.) React Query.
+> ... mesmo que surja um caso onde você diretamente chame o fetch, isto acontecerá em um wrapper criado por você, nunca diretamente de um `useEffect`;
+
+- Existem absolutamente _zero_ motivos pra usar Axios. É tipo usar jQuery em 2022.
