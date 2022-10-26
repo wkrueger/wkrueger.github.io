@@ -181,6 +181,31 @@ function Component({ id }) {
 }
 ```
 
+## Avoiding useEffects
+
+> (new section added as of 2022/10)
+
+Better than optimizing `useEffects` is avoiding them at all, when possible.
+
+Sometimes this can be achieved by calculating the dependencies on dispatch time.
+
+For instance, let's say `document` depends on `name`, one could write:
+
+```tsx
+
+function handleChange(event) {
+  const { name, value } = event.target
+
+  setState(previous => {
+    const result = { ...previous, [name]: value }
+    if (name === 'name') {
+      result.document = getDocumentFromName(name)
+    }
+    return result
+  })
+}
+```
+
 ## The case for useRef
 
 React Refs behave a bit differently from React states:
