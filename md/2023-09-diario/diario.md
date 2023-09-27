@@ -1,0 +1,17 @@
+# Para quê serve o diário
+
+Vi no Healthy Gamer e talvez em outro lugar que é interessante para a sua saúde mental você manter um diário (”do journaling”).
+
+Isto agora me faz cada vez mais sentido observando de diversos ângulos. O diário é uma forma de você colocar seus pensamentos pra fora, o que possui certa analogia ao que se faz com um psicólogo. O mero ato de mastigar e expor no papel os meus pensamentos faz com que eu os processe melhor, os organizando com mais lógica e também reduzindo a quantidade de pensamentos mal processados que me causam ansiedade durante o dia ou antes de dormir.
+
+Embora eu ache super improvável que eu vá atrás reler o meu journal, ele também é interessante pra ter uma retrospectiva. Olhar pra trás e ver que estou progredindo, similarmente ao que acontece quando se tira fotos. Quando não fazemos registros do passado, adquirimos a impressão de que nada está mudando na vida. Quando comecei a tirar fotos mais ativamente, eu me permiti ter uma agradável experiência revendo essas fotos e relembrando o que se passava pela minha cabeça naquelas épocas. Melhora a minha auto-estima perceber que, sim, meus últimos anos não foram apenas perdidos na rotina. Já dos anos anteriores, quando eu não tirava fotos, não consigo relembrar muita coisa e me dá a impressão de que foram anos mortos. Parece que nos últimos 2 anos fiz mais do que nos 7 que vieram antes.
+
+Nesta semana estou fazendo um experimento de desativar o Twitter. Eu noto que sinto um forte ímpeto em compartilhar o que estou pensando, mesmo que ninguém o leia (geralmente meus posts possuem cerca de 10 views). Esse ato de compartilhamento também funciona um pouco como um processamento das emoções. Sem a rede social, e sem pessoas próximas para contar pormenores da minha vida, esses pensamentos ficam em agonia na minha cabeça. Então me toquei que também posso liberá-los em formato de diário. Em prática não tem muita diferença à postagem em rede social pois ninguém estava lendo meus desabafos mesmo. É só para saciar o ímpeto de despejar o pensamento em qualquer lugar.
+
+>Noto também que o Instagram não serve para esse fim, pelo fato óbvio de ele exigir posts com imagens.
+
+Tenho algum receio e curiosidade pra ver o que acontece quando se despeja em formato de prosa pensamentos com forte teor emocional. Escrever e revisar esse tipo de pensamento pode tornar a emoção mais forte no momento. Mas, quem sabe depois disso, ela seja mais processada do que se eu não a tivesse escrito, e quem sabe isso deixe minha cabeça mais em paz. Vamos ver o que acontece…
+
+Distrações para a mente:
+
+Embora eu esteja sem o Twitter, ainda tenho o Reddit. Foi só usar 1 minuto dele que logo adentrei alguma discussão aleatoria, o que prontamente silenciou as vozes da minha cabeça e a vontade de escrever. Ao ligar uma música isso também acontece, ao passo em que a mente rapidamente se distrai pra analizar batidas e harmonias. Nota-se, no entanto, que essas distrações não eliminam um pensamento que paira, elas apenas adiam o seu processamento para um momento posterior. E se me encontro permanentemente rolando feeds, então o processamento desses pensamentos é postergado indefinidamente, da mesma forma como as redes sociais postergam a finalização das minhas tarefas do trabalho.
